@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", sans-serif;
+    color: white;
+  }
+  
+  .login button {
+    border-radius: 3px;
+    outline: none;
+    width: 100%;
+    padding: 15px 0;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    background: #000020;
+    cursor: pointer;
+  }
+  
+  .login {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 20px;
+    background: rgb(88, 0, 0);
+    display: flex;
+  }
+  
+  .login .loginForm {
+    padding: 60px;
+    margin: auto;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 520px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #800000;
+    box-shadow: 0 50px 70px -20px rgba(53, 0, 0, 0.8);
+  }
+  
+  .login .loginForm label {
+    color: #ffffff;
+    margin: 14px 0;
+    display: block;
+    font-size: 22px;
+    line-height: 1;
+  }
+  
+  .login .loginForm input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    padding: 10px;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #000050;
+    letter-spacing: 1px;
+  }
+  
+  .login .loginForm .boton {
+    width: 100%;
+    padding: 24px 0;
+  }
+  
+  .login .loginForm .boton p {
+    margin: 14px 0 0 0;
+    text-align: right;
+    color: #ffffff;
+  }
+  
+  .login .loginForm .boton p a {
+    color: grey;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+  }
+  
+  .login .loginForm .boton p a:hover {
+    color: yellow;
+  }
+  
+  .login .loginForm .errorMsg {
+    color: yellow;
+    font-size: 16px;
+  }
+
+  .login .loginForm h1 {
+    color: #ffffff;
+    align-self: center;
+  }
+  

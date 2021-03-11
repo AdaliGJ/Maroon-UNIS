@@ -1,0 +1,79 @@
+.sidemenu .navbar{
+    background-color: rgb(88, 0, 0);
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.sidemenu .menu-bars{
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
+}
+
+.sidemenu .nav-menu{
+    background-color: rgb(88, 0, 0);
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;    
+}
+
+.sidemenu .nav-menu-active{
+    left: 0;
+    transition: 350ms;
+    width: fit-content;
+    height: 600px;
+}
+
+.sidemenu ul{
+    list-style-type: none;
+}
+
+.sidemenu ul li{
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px, 0px, 8px, 16px;
+    list-style: none;
+    height: 60px;
+}
+
+.sidemenu ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    border-radius: 2px;
+}
+
+.sidemenu ul li a:hover{
+    background-color: #800000;
+}
+
+.sidemenu .nav-menu-items{
+    width: 100%;
+}
+
+.sidemenu .navbar-toggle{
+    width: 100px;
+    height: 80px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidemenu span{
+    margin-left: 16px;
+}
