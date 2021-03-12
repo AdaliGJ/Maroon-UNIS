@@ -45,8 +45,6 @@ const CrearP = () => {
 		Facultad: facultad
 	};
 
-	
-    
     return(
         <section className="crear">
         <header>
