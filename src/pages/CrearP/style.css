@@ -90,34 +90,31 @@ margin-bottom: 15px;
 	list-style:none;
 }
 			
-			
-.crear .nav li a {
-	background-color:#800000;
+.crear select{
+  background-color:#800000;
 	color:#fff;
 	text-decoration:none;
 	padding:10px 12px;
 	display:block;
   width: 210px;
-  padding: 5px;
-}
-.crear .nav li ul {
-	display:none;
+  padding: 6px;
+  margin-top: 8px;
+  border-color: #800000;
+  border-radius: 3px;
+  cursor: pointer;
+}			
+
+.crear select option {
+	display: block;
   position:absolute;
 	min-width:140px;
-}
-			
-.crear .nav li:hover > ul {
-	display:block;
-}
-			
-.crear .nav li ul li ul {
-	right:-140px;
+  right:-140px;
 	top:0px;
+  cursor: pointer;
 }
 			
-.crear .universidades{
-	border-radius: 4px;
-  margin-top: 2px;
-  width: 210px;
-  height: auto;
+.crear select option:hover{
+	display:block;
+  cursor: pointer;
 }
+			

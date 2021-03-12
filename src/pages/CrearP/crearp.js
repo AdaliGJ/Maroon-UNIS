@@ -34,16 +34,13 @@ const CrearP = () => {
 				            <input type="text" /><br/>
 				            <label>Correo Electrónico</label><br/>
 				            <input type="text" /><br/>
-				            <ul class="nav">
-				                <li><a href="" className="universidades">Univerisdad</a>
-					                <ul>
-						                <li><a href="">Universidad del Istmo</a></li>
-						                <li><a href="">Universidad del valle</a></li>
-						                <li><a href="">San Carlos Guatemala</a></li>
-						                <li><a href="">Rafael Landivar</a></li>
-					                </ul>
-				                </li>
-			                </ul>
+				            <select name="Universidad" id="nav">
+								<option value="Escoger universidad">Escoger Universidad</option>
+						        <option value="Universidad del Istmo">Universidad del Istmo</option>
+								<option value="Universidad del Valle">Universidad del Valle</option>
+								<option value="San Carlos Guatemala">San Carlos Guatemala</option>
+								<option value="Rafael Landivar">Rafael Landivar</option>
+			                </select>
 				            <button onClick={handleLogout}>Guardar cambios</button>
 			            </form>
 		            </div>
