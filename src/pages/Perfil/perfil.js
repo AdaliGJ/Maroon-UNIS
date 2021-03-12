@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import "./style.css";
 import data from "../../data.js"
-import storage from "../../data.js"
+import {storage} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import "firebase/storage"; 
 import firebase from 'firebase';
@@ -25,8 +25,7 @@ const Perfil = () => {
         setImage(e.target.files[0]);
         }
     };
-     
-    const storage = firebase.storage(); 
+    
     const handleUpload = () => {
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
         uploadTask.on(

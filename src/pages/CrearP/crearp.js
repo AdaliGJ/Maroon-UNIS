@@ -1,9 +1,10 @@
 import {React, useState} from 'react';
 import firebase from 'firebase';
 import "./../CrearP/style.css";
-import data from "./../../data.js"
+import data from "./../../data.js";
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Registro from "./../Registro/registro.js";
+import {db} from "./../../data.js";
 
 const CrearP = () => {
     
