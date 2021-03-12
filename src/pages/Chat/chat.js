@@ -7,7 +7,9 @@ const Chat = () => {
 
     return(
     <section className="chat">
-        <h1>Chat</h1> 
+        <nav>
+            <h3>Mensajes</h3>
+        </nav>
     </section>
     );
 }

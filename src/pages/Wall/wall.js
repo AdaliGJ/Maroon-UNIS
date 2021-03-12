@@ -8,7 +8,9 @@ const Wall = () => {
 
     return(
     <section className="wall">
-        <h1>Muro</h1>  
+        <nav>
+            <h3>Muro</h3>
+        </nav>  
     </section>
     );
 }

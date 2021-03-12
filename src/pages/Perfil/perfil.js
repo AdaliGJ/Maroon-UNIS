@@ -51,7 +51,7 @@ const Perfil = () => {
     return(
         <section className="perfil">
             <nav>
-                <h3>Configurar perfil</h3>
+                <h3>Perfil</h3>
                 <button onClick={handleLogout}>Guardar cambios</button>
             </nav>
             <div>
