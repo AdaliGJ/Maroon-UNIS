@@ -9,21 +9,16 @@ import {database} from "./../../data.js";
 const CrearP = () => {
     
     const history = useHistory();
+	
 
-	const initialValues ={
-		firstName: '',
-		secondName: '',
-		lastName1: '',
-		lastName2: '',
-		correo: data.currentUser.email
-	};
-	const [firstName,setFirstName] = useState('');
-	const [secondName,setSecondName] = useState('');
-	const [lastName1,setLastName1] = useState('');
-	const [lastName2,setLastName2] = useState('');
-	const [correo, setCorreo]= useState(data.currentUser.email);     
+	const [name,setName] = useState('');
+	const [carnet,setCarnet] = useState('');
+	const [carrera,setCarrera] = useState('');
+	const [fecha,setFecha] = useState('');
+	const [correo, setCorreo]= useState(data.currentUser.email);
+	const [facultad, setFacultad]=useState('');
+	
 
-	var [values, setValues]=useState(initialValues);
 
     const addOrEdit = obj =>{
 		database.ref().child('usuarios').push(
@@ -38,16 +33,19 @@ const CrearP = () => {
 	const handleLogout = () =>{
         data.signOut();
         history.push("/login");
-		addOrEdit(values);
+		addOrEdit(handleInputChange);
     };
 
-	const handleInputChange = e => {
-		var [name, value] = e.target
-		setValues({
-			...values,
-			[name]: value
-		})
+	const handleInputChange = {
+		Nombre_completo: name,
+		Carnet: carnet,
+		Carrera: carrera,
+		Fecha_nacimiento: fecha,
+		Correo: correo,
+		Facultad: facultad
 	};
+
+	
     
     return(
         <section className="crear">
@@ -57,22 +55,25 @@ const CrearP = () => {
                 <div className="formulario">
                     <div>
                         <form>
-				            <label>Primer Nombre</label><br/>
-				            <input type="text" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/><br/>
-				            <label>Segundo Nombre</label><br/>
-				            <input type="text" value={secondName} onChange={(e)=>setSecondName(e.target.value)}/><br/>
-				            <label>Primer Apellido</label><br/>
-				            <input type="text" value={lastName1} onChange={(e)=>setLastName1(e.target.value)}/><br/>
-				            <label>Segundo apellido</label><br/>
-				            <input type="text" value={lastName2} onChange={(e)=>setLastName2(e.target.value)}/><br/>
+				            <label>Nombre Completo</label><br/>
+				            <input type="text" value={name} onChange={(e)=>setName(e.target.value)}/><br/>
+				            <label>Número de Carnet</label><br/>
+				            <input type="text" value={carnet} onChange={(e)=>setCarnet(e.target.value)}/><br/>
+				            <label>Carrera</label><br/>
+				            <input type="text" value={carrera} onChange={(e)=>setCarrera(e.target.value)}/><br/>
+				            <label>Fecha de Nacimiento</label><br/>
+				            <input type="date" value={fecha} onChange={(e)=>setFecha(e.target.value)}/><br/>
 				            <label>Correo Electrónico</label><br/>
-				            <input type="text" value={correo} onChange={(e)=>setCorreo(e.target.value)}/><br/>
-				            <select name="Universidad" id="nav">
-								<option value="Escoger universidad">Escoger Universidad</option>
-						        <option value="Universidad del Istmo">Universidad del Istmo</option>
-								<option value="Universidad del Valle">Universidad del Valle</option>
-								<option value="San Carlos Guatemala">San Carlos Guatemala</option>
-								<option value="Rafael Landivar">Rafael Landivar</option>
+				            <input type="text" value={correo} onChange={(e)=>setCorreo(e.target.value)} readOnly/><br/>
+				            <select name="Facultad" id="nav" onChange={(e)=>setFacultad(e.target.value)}>
+								<option value="nulo">Facultad</option>
+						        <option value="Ingeniería">Ingeniería</option>
+								<option value="Humanidades">Humanidades</option>
+								<option value="Derecho">Derecho</option>
+								<option value="Comunicación">Comunicación</option>
+								<option value="Ciencias Económicas">Ciencias Económicas</option>
+								<option value="Ciencias de la Salud">Ciencias de la Salud</option>
+								<option value="Arquitectura y Diseño">Arquitectura y Diseño</option>
 			                </select>
 				            <button onClick={handleLogout}>Guardar cambios</button>
 			            </form>
