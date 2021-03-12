@@ -1,5 +1,10 @@
 .sidemenu .navbar{
-    background-color: rgb(88, 0, 0);
+    background: radial-gradient(
+        ellipse at left bottom,
+        rgba(53, 0, 0, 0.8) 0%,
+        rgb(88, 0, 0) -59%,
+        #800000 100%
+      );
     height: 80px;
     display: flex;
     justify-content: flex-start;
