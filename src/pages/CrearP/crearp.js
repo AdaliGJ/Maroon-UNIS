@@ -5,6 +5,7 @@ import data from "./../../data.js";
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Registro from "./../Registro/registro.js";
 import {database} from "./../../data.js";
+import ImageUpload from "./../../componentes/UploadImage/ImageUpload.js";
 
 const CrearP = () => {
     
@@ -52,6 +53,7 @@ const CrearP = () => {
             <div className="bodyDiv">
                 <div className="formulario">
                     <div>
+						<ImageUpload/>
                         <form>
 				            <label>Nombre Completo</label><br/>
 				            <input type="text" value={name} onChange={(e)=>setName(e.target.value)}/><br/>

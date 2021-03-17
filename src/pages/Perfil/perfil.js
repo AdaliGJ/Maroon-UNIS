@@ -1,66 +1,78 @@
 import {React, useState} from 'react';
-import "./style.css";
-import data from "../../data.js"
-import {storage} from "../../data.js"
-import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
-import "firebase/storage"; 
 import firebase from 'firebase';
-
+import "./style.css";
+import "./../../contenedores/Menu/navbar.css";
+import data from "./../../data.js";
+import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
+import Registro from "./../Registro/registro.js";
+import {database} from "./../../data.js";
+import Navbar from '../../contenedores/Menu/NavBar';
 
 const Perfil = () => {
     
     const history = useHistory();
+	
 
-    const handleLogout = () =>{
-        data.signOut();
-        history.push("/login");
+	const [name,setName] = useState('');
+	const [carnet,setCarnet] = useState('');
+	const [carrera,setCarrera] = useState('');
+	const [fecha,setFecha] = useState('');
+	const [correo, setCorreo]= useState(data.currentUser.email);
+	const [facultad, setFacultad]=useState('');
+	
+
+    const addOrEdit = obj =>{
+		database.ref().child('usuarios').get(
+			obj,
+			err =>{
+				if(err)
+					console.log(err)
+			}
+		)
+	}
+	
+	const makeChange = () =>{
+        history.push("/crear-perfil");
+        addOrEdit(handleInputChange);
     };
 
-    const [image, setImage] = useState(null);
-    const [url, setUrl]=useState("");
+	const handleInputChange = {
+		Nombre_completo: name,
+		Carnet: carnet,
+		Carrera: carrera,
+		Fecha_nacimiento: fecha,
+		Correo: correo,
+		Facultad: facultad
+	};
 
-      
-    const handleChange = e => {
-        if (e.target.files[0]) {
-        setImage(e.target.files[0]);
-        }
-    };
-    
-    const handleUpload = () => {
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        uploadTask.on(
-            "state_changed",
-            snapshot =>{},
-            error => {
-                console.log(error);
-            },
-            () => {
-                storage
-                    .ref("images")
-                    .child(image.new)
-                    .getDownloadURL()
-                    .then(url =>{
-                        setUrl(url);
-                });
-            }
-        );
-    };
-      
-    console.log("image: ", image);
-    
     return(
         <section className="perfil">
-            <nav>
-                <h3>Perfil</h3>
-                <button onClick={handleLogout}>Guardar cambios</button>
-            </nav>
-            <div>
-                <input type="file" onChange={handleChange}/>
-                <br/>
-                <button onClick={handleUpload}>Subir</button>
-                <br/>
-                {url}
-            </div>
+        <header>
+            <Navbar/> 
+        </header>
+            <div className="bodyDiv">
+                <div className="formulario">
+                    <div>
+                        <form>
+				            <label>Nombre Completo</label><br/>
+				            <input type="text" value={name} onChange={(e)=>setName(e.target.value)}readOnly/><br/>
+				            <label>Número de Carnet</label><br/>
+				            <input type="text" value={carnet} onChange={(e)=>setCarnet(e.target.value)}readOnly/><br/>
+				            <label>Carrera</label><br/>
+				            <input type="text" value={carrera} onChange={(e)=>setCarrera(e.target.value)}readOnly/><br/>
+				            <label>Fecha de Nacimiento</label><br/>
+				            <input type="date" value={fecha} onChange={(e)=>setFecha(e.target.value)}readOnly/><br/>
+				            <label>Correo Electrónico</label><br/>
+				            <input type="text" value={correo} onChange={(e)=>setCorreo(e.target.value)} readOnly/><br/>
+                            <label>Facultad</label><br/>
+				            <input type ="text" value={facultad} onChange={(e)=>setFacultad(e.target.value)} readOnly/>
+				            <button onClick={makeChange}>Editar perfil</button>
+			            </form>
+		            </div>
+                </div>
+		    </div>
+            <footer>
+	        </footer>
         </section>
         );
 }

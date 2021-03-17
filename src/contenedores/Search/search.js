@@ -8,9 +8,8 @@ const Buscar = () => {
 
     return(
     <section className="search">
-        <nav>
+            <Navbar/>
             <h3>Buscar</h3>
-        </nav>
     </section>
     );
 }

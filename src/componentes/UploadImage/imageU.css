@@ -1,0 +1,32 @@
+.upload div {
+    height: '100vh';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload img{
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+}
+.upload button {
+    width: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border-color: white;
+    background: #880000;
+  }
+
+.upload input[type=file]{
+    width: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border-color: white;
+    background: #880000;
+}
+
+.upload .image-upload>input{
+    display:none;
+}

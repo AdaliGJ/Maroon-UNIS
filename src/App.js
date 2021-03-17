@@ -10,6 +10,7 @@ import Perfil from './pages/Perfil/perfil.js';
 import Chat from './pages/Chat/chat.js';
 import Wall from './pages/Wall/wall.js';
 import Buscar from './contenedores/Search/search.js';
+import ImageUpload from './componentes/UploadImage/ImageUpload.js';
 
     const App = () =>{
       return(
@@ -25,6 +26,7 @@ import Buscar from './contenedores/Search/search.js';
             <Route path="/mensajes" component={Chat}/>
             <Route path="/mi-muro" component={Wall}/>
             <Route path="/buscar" component={Buscar}/>
+            <Route path="/upload" component={ImageUpload}/>
             <Redirect path="/" to="/login"></Redirect>
           </Switch>
         </Router>  

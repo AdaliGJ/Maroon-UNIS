@@ -8,9 +8,9 @@ const Wall = () => {
 
     return(
     <section className="wall">
-        <nav>
-            <h3>Muro</h3>
-        </nav>  
+        <Navbar/>
+        <h3>Mi Muro</h3>
+        <div><p>Hola</p></div>
     </section>
     );
 }
