@@ -18,6 +18,7 @@ const CrearP = () => {
 	const [fecha,setFecha] = useState('');
 	const [correo, setCorreo]= useState(data.currentUser.email);
 	const [facultad, setFacultad]=useState('');
+	const [foto, setFoto] = useState('');
 	
 
 	const pushObj = () =>{
@@ -28,7 +29,7 @@ const CrearP = () => {
 			Carrera: carrera,
 			Fecha_nacimiento: fecha,
 			Correo: correo,
-			Facultad: facultad,
+			Facultad: facultad
 		},
 		err =>{
 			if(err)

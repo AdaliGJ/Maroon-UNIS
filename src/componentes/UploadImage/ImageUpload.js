@@ -1,7 +1,7 @@
  import React, {Component} from 'react';
- import {storage} from './../../data.js';
+ import data, {storage, database} from './../../data.js';
  import "./imageU.css";
-
+ 
 
  class ImageUpload extends Component {
      constructor(props){
@@ -39,11 +39,12 @@
              storage.ref('perfil').child(image.name).getDownloadURL().then(url => {
                  console.log(url);
                  this.setState({url});
+                 database.ref(`foto_perfil/${data.currentUser.uid}`).set({
+                    Foto: url
+                 })
              })
          });
      }
-
-     
      
      render(){
          return(

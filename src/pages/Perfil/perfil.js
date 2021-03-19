@@ -7,7 +7,6 @@ import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-ro
 import Registro from "./../Registro/registro.js";
 import {database} from "./../../data.js";
 import Navbar from '../../contenedores/Menu/NavBar';
-import ImageUpload from '../../componentes/UploadImage/ImageUpload';
 
 const Perfil = () => {
     
@@ -19,6 +18,7 @@ const Perfil = () => {
 	const [fecha,setFecha] = useState('');
 	const [correo, setCorreo]= useState(data.currentUser.email);
 	const [facultad, setFacultad]=useState('');
+	const [foto, setFoto]=useState('');
 	
 	
 	const makeChange = () =>{
@@ -39,6 +39,11 @@ const Perfil = () => {
 		setFecha(snapshot.val().Fecha_nacimiento);
 		setCarnet(snapshot.val().Carnet);
     });
+		var fotoRef = database.ref('/foto_perfil/' + userId);
+		fotoRef.once('value').then((snapshot)=>{
+		console.log(snapshot.val());
+		setFoto(snapshot.val().Foto);
+	});
 	}, [])
 
     return(
@@ -49,6 +54,11 @@ const Perfil = () => {
             <div className="bodyDiv">
                 <div className="formulario">
                     <div>
+						<div class="image-upload">
+                    		<label for="file-input">
+                        		<img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
+                    		</label>
+                		</div>
                         <form>
 				            <label>Nombre Completo</label><br/>
 				            <input type="text" value={name} onChange={(e)=>setName(e.target.value)}readOnly/><br/>

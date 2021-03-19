@@ -17,6 +17,7 @@ const EditarP = () => {
 	const [fecha,setFecha] = useState('');
 	const [correo, setCorreo]= useState(data.currentUser.email);
 	const [facultad, setFacultad]=useState('');
+	const [foto, setFoto]=useState('');
 	
 
 	const pushObj = () =>{
@@ -57,6 +58,11 @@ const EditarP = () => {
 		setFecha(snapshot.val().Fecha_nacimiento);
 		setCarnet(snapshot.val().Carnet);
     });
+		var fotoRef = database.ref('/foto_perfil/' + userId);
+		fotoRef.once('value').then((snapshot)=>{
+		console.log(snapshot.val());
+		setFoto(snapshot.val().Foto);
+	});
 	}, [])
 
     return(
