@@ -11,7 +11,7 @@ const CrearP = () => {
     
     const history = useHistory();
 	
-
+	
 	const [name,setName] = useState('');
 	const [carnet,setCarnet] = useState('');
 	const [carrera,setCarrera] = useState('');
@@ -28,7 +28,7 @@ const CrearP = () => {
 			Carrera: carrera,
 			Fecha_nacimiento: fecha,
 			Correo: correo,
-			Facultad: facultad
+			Facultad: facultad,
 		},
 		err =>{
 			if(err)

@@ -7,6 +7,7 @@ import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-ro
 import Registro from "./../Registro/registro.js";
 import {database} from "./../../data.js";
 import Navbar from '../../contenedores/Menu/NavBar';
+import ImageUpload from '../../componentes/UploadImage/ImageUpload';
 
 const Perfil = () => {
     
@@ -25,7 +26,8 @@ const Perfil = () => {
     };
 
 	const userId = data.currentUser.uid;
-	
+
+
 	useEffect(() => {
 		var recentPostsRef = database.ref('/usuarios/'+ userId);
     	recentPostsRef.once('value').then((snapshot) => {
