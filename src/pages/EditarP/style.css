@@ -1,0 +1,130 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: Nunito, sans-serif;
+
+
+}
+.crear header{
+	width: 100%;
+	height: 4em;
+	background-color: #800000;
+}
+
+.crear .bodyDiv{
+	background-image: url("./img/fondo.jpg");
+	background-size: cover;
+	width: 100%;
+	height: 50em;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.crear .formulario{
+  text-align: center;
+	background-color: rgb(88, 0, 0);
+	width: 35%;
+	height: 730px;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.crear #textarea {
+background-color: #ffffff;
+width:190px;
+height:190px;
+overflow:auto;
+margin-bottom: 15px;
+}
+.crear label{
+	color: white;
+	margin: 4px;
+}
+.crear .ui-controlgroup-vertical {
+      width: 150px;
+    }
+.crear .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+.crear .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+    text-align: center;
+}
+.crear #car-type-button {
+  width: 120px;
+  margin-top: 2px;
+}
+.crear .ui-controlgroup-horizontal .ui-spinner-input {
+    width: 20px;
+}
+
+.crear input[type=text], select {
+  width: 210px;
+  padding: 5px 20px;
+  margin-bottom: 4px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.crear button {
+  width: 100%;
+  background-color: #800000;
+  color: white;
+  padding: 5px 18px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.crear button:hover {
+  background-color: #800000;
+}
+
+/*Menu desplegable*/
+
+.crear ul, ol {
+	list-style:none;
+}
+			
+.crear select{
+  background-color:#800000;
+  color:#fff;
+  text-decoration:none;
+  padding:10px 12px;
+  display:block;
+  width: 258px;
+  padding: 6px;
+  margin-top: 8px;
+  border-color: #800000;
+  border-radius: 3px;
+  cursor: pointer;
+}			
+
+.crear select option {
+	display: block;
+  position:absolute;
+	min-width:140px;
+  right:-140px;
+	top:0px;
+  cursor: pointer;
+}
+			
+.crear select option:hover{
+	display:block;
+  cursor: pointer;
+}
+	
+.crear input[type=date]{
+  width: 210px;
+  padding: 5px 20px;
+  margin-bottom: 4px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: black;
+}

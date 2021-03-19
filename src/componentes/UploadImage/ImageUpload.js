@@ -1,13 +1,14 @@
  import React, {Component} from 'react';
  import {storage} from './../../data.js';
- import "./imageU.css"
+ import "./imageU.css";
+
 
  class ImageUpload extends Component {
      constructor(props){
          super(props);
          this.state = {
             image: null,
-            url: ''
+            url: '',
          }
          this.handleChange = this.handleChange.bind(this);
          this.handleUpload = this.handleUpload.bind(this);
@@ -42,6 +43,8 @@
          });
      }
 
+     
+     
      render(){
          return(
              <section className="upload">

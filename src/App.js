@@ -11,6 +11,7 @@ import Chat from './pages/Chat/chat.js';
 import Wall from './pages/Wall/wall.js';
 import Buscar from './contenedores/Search/search.js';
 import ImageUpload from './componentes/UploadImage/ImageUpload.js';
+import EditarP from './pages/EditarP/editarp.js';
 
     const App = () =>{
       return(
@@ -26,7 +27,7 @@ import ImageUpload from './componentes/UploadImage/ImageUpload.js';
             <Route path="/mensajes" component={Chat}/>
             <Route path="/mi-muro" component={Wall}/>
             <Route path="/buscar" component={Buscar}/>
-            <Route path="/upload" component={ImageUpload}/>
+            <Route path="/editar-perfil" component={EditarP}/>
             <Redirect path="/" to="/login"></Redirect>
           </Switch>
         </Router>  

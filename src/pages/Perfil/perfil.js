@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import firebase from 'firebase';
 import "./style.css";
 import "./../../contenedores/Menu/navbar.css";
@@ -12,7 +12,6 @@ const Perfil = () => {
     
     const history = useHistory();
 	
-
 	const [name,setName] = useState('');
 	const [carnet,setCarnet] = useState('');
 	const [carrera,setCarrera] = useState('');
@@ -20,30 +19,25 @@ const Perfil = () => {
 	const [correo, setCorreo]= useState(data.currentUser.email);
 	const [facultad, setFacultad]=useState('');
 	
-
-    const addOrEdit = obj =>{
-		database.ref().child('usuarios').get(
-			obj,
-			err =>{
-				if(err)
-					console.log(err)
-			}
-		)
-	}
 	
 	const makeChange = () =>{
-        history.push("/crear-perfil");
-        addOrEdit(handleInputChange);
+        history.push("/editar-perfil");
     };
 
-	const handleInputChange = {
-		Nombre_completo: name,
-		Carnet: carnet,
-		Carrera: carrera,
-		Fecha_nacimiento: fecha,
-		Correo: correo,
-		Facultad: facultad
-	};
+	const userId = data.currentUser.uid;
+	
+	useEffect(() => {
+		var recentPostsRef = database.ref('/usuarios/'+ userId);
+    	recentPostsRef.once('value').then((snapshot) => {
+      	// snapshot.val() is the dictionary with all your keys/values from the '/store' path
+      	console.log(snapshot.val());
+		setCarrera(snapshot.val().Carrera);
+		setName(snapshot.val().Nombre);
+		setFacultad(snapshot.val().Facultad);
+		setFecha(snapshot.val().Fecha_nacimiento);
+		setCarnet(snapshot.val().Carnet);
+    });
+	}, [])
 
     return(
         <section className="perfil">
