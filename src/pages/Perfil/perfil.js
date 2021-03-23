@@ -48,9 +48,7 @@ const Perfil = () => {
 
     return(
         <section className="perfil">
-        <header>
-            <Navbar/> 
-        </header>
+			<Navbar/> 
             <div className="bodyDiv">
                 <div className="formulario">
                     <div>

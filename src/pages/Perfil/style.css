@@ -3,7 +3,6 @@
 	margin: 0;
 	font-family: Nunito, sans-serif;
 
-
 }
 .perfil header{
 	width: 100%;
@@ -31,31 +30,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-}
-.perfil #textarea {
-background-color: #ffffff;
-width:190px;
-height:190px;
-overflow:auto;
-margin-bottom: 15px;
-}
-.perfil label{
-	color: white;
-	margin: 4px;
-}
-.perfil .ui-controlgroup-vertical {
-      width: 150px;
-    }
-.perfil .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
-.perfil .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
-    text-align: center;
-}
-.perfil #car-type-button {
-  width: 120px;
-  margin-top: 2px;
-}
-.perfil .ui-controlgroup-horizontal .ui-spinner-input {
-    width: 20px;
 }
 
 .perfil input[type=text], select {
@@ -135,20 +109,20 @@ margin-bottom: 15px;
   height: 100%;
   display: flex;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: -100%;
-  transition: 850ms;
-  overflow: hidden;    
+  transition: 850ms;    
 }
 
 .perfil .sidemenu .nav-menu-active{
   left: 0;
   transition: 350ms;
   width: fit-content;
-  height: 600px;
+  max-height: 50em;
+  height: 900px;
   background-color: rgb(88, 0, 0);
-  overflow: hidden;  
+  padding: 40px;
 }
 
 .perfil img{

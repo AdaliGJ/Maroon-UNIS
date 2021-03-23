@@ -1,0 +1,185 @@
+.posts .publicar{
+    text-align: center;
+    background-color: white;
+    width: 65%;
+    height: 100px;
+    display: flex;
+    border-radius: 5px;
+    margin:auto;
+    padding: 9px;
+    margin-top: 20px;
+    box-shadow: 20px 20px 30px -20px rgba(53, 0, 0, 0.8);
+    border-color: #000030;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .posts .publicar img{
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      border-color:rgb(88, 0, 0);
+      border: 1px;
+      float: left;
+      border-color: #000030;
+      border-style: solid;
+      border-width: 2px;
+  }
+
+  .posts .publicar .pensamiento{
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    margin-left: 5px;
+    background-color: rgba(172, 172, 172, 0.185);
+    color:rgb(88, 0, 0);
+    border: none;
+    align-self: center;
+    outline: none;
+  }
+.posts .publicar .pensamiento:hover{
+    background-color: rgba(109, 108, 108, 0.185);
+    outline: none;
+  }
+.posts .publicar .cuerpo{
+    display: none;
+    }
+
+.posts .publicar .cancelar{
+      display: none;
+    }
+
+.posts .publicar .postear{
+    display: none;
+}
+    
+.posts .publicar .extras{
+     display: none;
+}
+
+  .posts .escribir{
+    text-align: center;
+    background-color: white;
+    width: 65%;
+    height: 235px;
+    display: flex;
+    border-radius: 5px;
+    margin:auto;
+    padding: 9px;
+    margin-top: 20px;
+    box-shadow: 20px 20px 30px -20px rgba(53, 0, 0, 0.8);
+    border-color: #000030;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .posts .escribir img{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border-color:rgb(88, 0, 0);
+    border: 1px;
+    float: left;
+    border-color: #000030;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.posts .escribir .pensamiento{
+    display: none;
+}
+
+.posts .escribir .extras{
+   color: black;
+   position: fixed;
+   align-self: flex-end;
+   margin-left: 20%;
+   margin-bottom: 2%;
+  }
+  .posts .escribir .extras p{
+    color: black;
+   }
+
+  .posts .escribir .cuerpo{
+    border-radius: 10px;
+    width: 100%;
+    height: 100px;
+    margin-left: 5px;
+    background-color: rgba(172, 172, 172, 0.185);
+    color:rgb(88, 0, 0);
+    border: none;
+    margin-top: 15px;
+    min-height: 50px;
+    max-height: 100px;
+    display: block;
+    outline: none;
+    padding: 10px;
+}
+
+.posts .escribir .postear {
+    width: 100px;
+    background-color: #800000;
+    height: 35px;
+    color: white;
+    padding: 5px 18px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    position:absolute;
+    align-self: flex-end;
+    margin-left: 55%;
+  }
+  .posts .escribir .cancelar {
+    width: 100px;
+    background-color: rgba(51, 49, 49, 0.486);
+    height: 35px;
+    color: white;
+    padding: 5px 18px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    position:absolute;
+    align-self: flex-end;
+    margin-left: 47%;
+  }
+
+ .posts .escribir .subirI img{
+    height: 50px;
+    float: left;
+    width: auto;
+    border-radius: 0px;
+    position: absolute;
+    align-self: flex-end;
+}
+
+.posts .escribir .extras{
+  margin-left: 25%;
+  margin-bottom: 3%;
+}
+
+.posts .escribir .extras .imagen{
+  width: 200px;
+  background-color: white;
+  height: 35px;
+  color: #000030;
+  padding: 5px 18px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 17.5px;
+  cursor: pointer;
+  display: block;
+  border-color: rgba(172, 172, 172, 0.185);
+  border-style:groove;
+  border-width: 1px;
+ 
+}
+
+.posts .escribir .extras .imagen:hover{
+  background-color: rgba(172, 172, 172, 0.185);
+}
+
+  

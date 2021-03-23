@@ -1,3 +1,4 @@
+
 .sidemenu .navbar{
     background: radial-gradient(
         ellipse at left bottom,
@@ -34,8 +35,9 @@
     left: 0;
     transition: 350ms;
     width: fit-content;
-    height: 600px;
+    height: 100%;
     overflow: hidden;  
+    position: absolute;
 }
 
 .sidemenu ul{
