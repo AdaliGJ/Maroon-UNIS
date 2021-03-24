@@ -1,0 +1,27 @@
+.post{
+    color:black
+}
+
+.post .publicaciones{
+    text-align: center;
+    color: black;
+    background-color: white;
+    width: 65%;
+    height: max-content;
+    border-color: gray;
+    border-style: solid;
+    margin: auto;
+    padding: 2px;
+  }
+  
+  .post .publicaciones img{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border-color:black;
+    border: 1px;
+    float: left;
+    border-style: solid;
+    border-width: 2px;
+    outline: black;
+  }
