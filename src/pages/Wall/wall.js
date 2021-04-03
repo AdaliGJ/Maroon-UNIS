@@ -4,12 +4,23 @@ import data, {database} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
+import { hydrate } from 'react-dom';
 
 const Wall = () => {
 
     var [posts, setPosts] = useState([]);
-    
+    const [postimg, setPostimg]=useState('');
+    var [className, setClassName] = useState('');
 
+    var vf = () =>{
+        if(postimg==''){
+            setClassName('nopostimg');
+        }
+        else{
+            setClassName('postimg');
+        }
+    }
+    
     useEffect(() => {
         database.ref('posts/' + data.currentUser.uid).orderByChild('Fecha_publicacion');
         database.ref(`posts/${data.currentUser.uid}`).on('value', snapshot =>{
@@ -17,12 +28,14 @@ const Wall = () => {
             setPosts({
                 ...snapshot.val()
             })
-        })
+        });
     }, [])
 
     return(
     <section className="wall">
-        <Navbar/>
+        <header>
+            <Navbar/>
+        </header>
         <h3>Mi Muro</h3>
         <div>
             {
@@ -33,8 +46,9 @@ const Wall = () => {
                         <p className='fecha'>Publicado: {posts[id].Fecha_publicación}, {posts[id].Hora}</p>
                         <h9 className='correo'>{posts[id].Correo}</h9><br/>
                         <textarea className='cuerpo' readOnly value={posts[id].Cuerpo}></textarea><br/>
-                        <img className='postimg' src={posts[id].Imagen_Post || null} alt="Foto de post"/><br/>
-                    </div>
+                        <img className='postimg' src={posts[id].Imagen_Post} alt="Foto de post"/><br/>
+                    </div> 
+                    
                 })
             }
         </div>
