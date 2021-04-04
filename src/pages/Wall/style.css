@@ -141,6 +141,7 @@
 
 .wall .publicaciones>input{
   display:none;
+  cursor: pointer;
 }
 
 
