@@ -4,25 +4,29 @@ import data, {database} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
-import { hydrate } from 'react-dom';
+import * as AiIcons from 'react-icons/ai';
 
 const Wall = () => {
 
     var [posts, setPosts] = useState([]);
-    const [postimg, setPostimg]=useState('');
-    var [className, setClassName] = useState('');
 
-    var vf = () =>{
-        if(postimg==''){
-            setClassName('nopostimg');
+    const [like, setLike]=useState(false);
+    const [likeColor, setLikeColor]=useState('#FFFFFF');
+
+    const likePost = () => setLike(!like);
+    const colorLike = () =>{
+        if(like){
+            return '#800000';
         }
         else{
-            setClassName('postimg');
+            return '#FFFFFF';
         }
     }
+
+
     
     useEffect(() => {
-        database.ref('posts/' + data.currentUser.uid).orderByChild('Fecha_publicacion');
+        database.ref('posts/' + data.currentUser.uid).orderByChild('Orden_Fecha');
         database.ref(`posts/${data.currentUser.uid}`).on('value', snapshot =>{
             if(snapshot.val()!=null)
             setPosts({
@@ -47,6 +51,8 @@ const Wall = () => {
                         <h9 className='correo'>{posts[id].Correo}</h9><br/>
                         <textarea className='cuerpo' readOnly value={posts[id].Cuerpo}></textarea><br/>
                         <img className='postimg' src={posts[id].Imagen_Post} alt="Foto de post"/><br/>
+                        <label for='like'><h2><AiIcons.AiFillHeart color={like ? '#F44336' : 'rgb(50, 50, 50)'}/></h2></label>
+                        <input id='like' onClick={likePost}/>
                     </div> 
                     
                 })

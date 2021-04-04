@@ -2,10 +2,7 @@ import React, {useState, useEffect} from 'react';
 import "./style.css";
 import data, {database, storage} from "./../../data.js";
 import * as AiIcons from 'react-icons/ai';
-import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
-import Navbar from '../../contenedores/Menu/NavBar';
-import PostImage from './../../componentes/PostImage/PostImage.js';
-import { IconContext } from 'react-icons/lib';
+
 
 const Posting = () => {
 
@@ -81,7 +78,7 @@ const Posting = () => {
             Cuerpo: texto,
 			Foto: foto,
             Imagen_Post: postingImage,
-            Hora: hora
+            Hora: hora,
 		},
 		err =>{
 			if(err)
