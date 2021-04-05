@@ -1,0 +1,143 @@
+.comments .publicar{
+    text-align: center;
+    background-color: white;
+    width: 65%;
+    height: 100px;
+    display: flex;
+    border-radius: 5px;
+    margin:auto;
+    padding: 9px;
+    margin-top: 20px;
+    box-shadow: 20px 20px 30px -20px rgba(53, 0, 0, 0.8);
+    border-color: #000030;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  .comments .publicar img{
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      border-color:rgb(88, 0, 0);
+      border: 1px;
+      float: left;
+      border-style: solid;
+      border-width: 2px;
+  }
+  
+  .comments .publicar .pensamiento{
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    margin-left: 5px;
+    background-color: rgba(172, 172, 172, 0.185);
+    color:rgb(88, 0, 0);
+    border: none;
+    align-self: center;
+    outline: none;
+  }
+  .comments .publicar .pensamiento:hover{
+    background-color: rgba(109, 108, 108, 0.185);
+    outline: none;
+  }
+  .comments .publicar .cuerpo{
+    display: none;
+    }
+  
+  .comments .publicar .cancelar{
+      display: none;
+    }
+  
+  .comments .publicar .postear{
+    display: none;
+  }
+  
+  .comments .escribir{
+    text-align: center;
+    background-color: white;
+    width: 65%;
+    height: 300px;
+    display: flex;
+    border-radius: 5px;
+    margin:auto;
+    padding: 9px;
+    margin-top: 20px;
+    box-shadow: 20px 20px 30px -20px rgba(53, 0, 0, 0.8);
+    border-color: #000030;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+  .comments .escribir img{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border-color:rgb(88, 0, 0);
+    border: 1px;
+    float: left;
+    border-color: #000030;
+    border-style: solid;
+    border-width: 2px;
+  }
+  
+  .comments .escribir .pensamiento{
+    display: none;
+  }
+  
+  .comments .escribir .extras{
+   color: black;
+   position: absolute;
+   align-self: flex-end;
+   margin-left: 20%;
+   margin-bottom: 2%;
+  }
+  .comments .escribir .extras p{
+    color: black;
+   }
+  
+  .comments .escribir .cuerpo{
+    border-radius: 10px;
+    width: 100%;
+    height: 100px;
+    margin-left: 5px;
+    background-color: rgba(172, 172, 172, 0.185);
+    color:rgb(88, 0, 0);
+    border: none;
+    margin-top: 15px;
+    min-height: 50px;
+    max-height: 100px;
+    display: block;
+    outline: none;
+    padding: 10px;
+  }
+  
+  
+  /*Extras_imagen*/
+  
+   .comments .escribir  p{
+     color: black;
+    }
+   
+   .comments .escribir .postear {
+     width: 100px;
+     background-color: #800000;
+     height: 35px;
+     color: white;
+     border-radius: 4px;
+     cursor: pointer;
+     margin-left: 10px;
+     border: none;
+     margin-top: 10px;
+     align-self: initial;
+   }
+   .posts .escribir .cancelar {
+     width: 100px;
+     background-color: rgba(51, 49, 49, 0.486);
+     height: 35px;
+     color: white;
+     border-radius: 4px;
+     cursor: pointer;
+     align-self: initial;
+     border: none;
+   }
+   

@@ -5,23 +5,27 @@ import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-ro
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
 import * as AiIcons from 'react-icons/ai';
+import Likes from './../../contenedores/Likes/likes.js';
 
 const Wall = () => {
 
     var [posts, setPosts] = useState([]);
 
     const [like, setLike]=useState(false);
-    const [likeColor, setLikeColor]=useState('#FFFFFF');
+    var [likeColor, setLikeColor]=useState('#FFFFFF');
+    var [comment, setComment]=useState(false);
 
     const likePost = () => setLike(!like);
     const colorLike = () =>{
         if(like){
-            return '#800000';
+            return '#F44336';
         }
         else{
-            return '#FFFFFF';
+            return 'rgb(50, 50, 50)';
         }
     }
+
+    const commentPost =()=>setComment(!comment);
 
 
     
@@ -51,8 +55,10 @@ const Wall = () => {
                         <h9 className='correo'>{posts[id].Correo}</h9><br/>
                         <textarea className='cuerpo' readOnly value={posts[id].Cuerpo}></textarea><br/>
                         <img className='postimg' src={posts[id].Imagen_Post} alt="Foto de post"/><br/>
-                        <label for='like'><h2><AiIcons.AiFillHeart color={like ? '#F44336' : 'rgb(50, 50, 50)'}/></h2></label>
+                        <label className='heart' for='like'><h2><AiIcons.AiFillHeart style={{fill: {colorLike}}} /></h2></label>
                         <input id='like' onClick={likePost}/>
+
+                        <Likes/>
                     </div> 
                     
                 })

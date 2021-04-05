@@ -4,7 +4,7 @@ import "./../CrearP/style.css";
 import data from "./../../data.js";
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Registro from "./../Registro/registro.js";
-import {database, storage} from "./../../data.js";
+import {database, storage, db} from "./../../data.js";
 import ImageUpload from "./../../componentes/UploadImage/ImageUpload.js";
 
 const CrearP = () => {
@@ -35,6 +35,16 @@ const CrearP = () => {
 			if(err)
 				console.log(err)
 		});
+
+		var usersCollection = db.collection('usuarios').doc(data.currentUser.uid);
+		usersCollection.set({
+			Nombre: name,
+			Carnet: carnet,
+			Carrera: carrera,
+			Fecha_nacimiento: fecha,
+			Correo: correo,
+			Facultad: facultad
+		})
 	}
 
 	

@@ -141,9 +141,12 @@
 
 .wall .publicaciones>input{
   display:none;
-  cursor: pointer;
 }
 
-
+.wall .publicaciones .heart{
+  cursor: pointer;
+  border-color: black;
+  padding-left: 10px;
+}
 
 
