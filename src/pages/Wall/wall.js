@@ -55,10 +55,10 @@ const Wall = () => {
                         <h9 className='correo'>{posts[id].Correo}</h9><br/>
                         <textarea className='cuerpo' readOnly value={posts[id].Cuerpo}></textarea><br/>
                         <img className='postimg' src={posts[id].Imagen_Post} alt="Foto de post"/><br/>
-                        <label className='heart' for='like'><h2><AiIcons.AiFillHeart style={{fill: {colorLike}}} /></h2></label>
+                        <label for='like'><h2><AiIcons.AiFillHeart style={like ? {fill:'#F44336'} : {fill: 'rgb(50, 50, 50)'}}/></h2></label>
                         <input id='like' onClick={likePost}/>
-
-                        <Likes/>
+                        <label for='comment'><h2><AiIcons.AiOutlineComment style={{fill: 'black'}}/></h2></label>
+                        <input id='comment' onClick={commentPost}/>
                     </div> 
                     
                 })
