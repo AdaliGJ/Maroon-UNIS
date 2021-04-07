@@ -25,8 +25,8 @@ const Wall = () => {
         showEscribir();
     }
 
-    const publicacion = (comentarios) =>{
-        pushObj(comentarios);
+    const publicacion = () =>{
+        pushObj();
         setTexto('');
         showEscribir();
     }
@@ -46,8 +46,8 @@ const Wall = () => {
     const [texto,setTexto] = useState('');
 
 
-    const pushObj = (comentarios) =>{
-		var usersRef = database.ref(`posts/${comentarios}/comentarios`);
+    const pushObj = () =>{
+		var usersRef = database.ref(`comentarios/${data.currentUser.uid}`);
 		usersRef.push({
 			Nombre: name,
 			Fecha_publicación: fecha,
@@ -115,15 +115,9 @@ const Wall = () => {
                             <textarea className='cuerpo' value={texto} placeholder='Escribe algo...' onChange={(e)=>setTexto(e.target.value)}></textarea><br/>
                             <div className='extras'>
                                 <button className='cancelar' onClick={borrar}>Cancelar</button> 
-                                <button className='postear' onClick={publicacion(Object.keys(posts[id]))}>Publicar</button>
+                                <button className='postear' onClick={publicacion}>Publicar</button>
                             </div>
                         </div>
-                        {Object.keys(posts[id].Commentarios).map(id2 => {
-                            return <div className='comentarios'>
-                                <h1>Comentarios</h1>
-                                <h7>{posts[id].Commentarios[id2].Nombre}</h7>
-                            </div>
-                        })}
                     </div> 
                 })
             }
