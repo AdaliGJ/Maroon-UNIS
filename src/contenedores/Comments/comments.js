@@ -93,7 +93,6 @@ const Comments = () => {
 		setName(snapshot.val().Nombre);
         setFecha(new Date().toDateString());
         setHora(time);
-        setLike('falso');
     });
 		var fotoRef = database.ref('/foto_perfil/' + userId);
 		fotoRef.once('value').then((snapshot)=>{
