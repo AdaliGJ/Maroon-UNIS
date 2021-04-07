@@ -13,7 +13,7 @@ const Wall = () => {
     var [posts, setPosts] = useState([]);
 
     const [like, setLike]=useState(false);
-    var [comment, setComment]=useState(false);
+    const [comment, setComment]=useState(false);
 
     const likePost = () => setLike(!like);
 
@@ -109,6 +109,7 @@ const Wall = () => {
                         <input id='like' onClick={likePost}/>
                         <label for='comment'><h2><AiIcons.AiOutlineComment style={{fill: 'black'}}/></h2></label>
                         <input id='comment' onClick={commentPost}/>
+                        <div className={comment ? 'sicomentarios': 'nocomentarios'}>
                         <div className={escribir ? 'escribir' :  'publicar'}>
                             <img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
                             <button className='pensamiento' onClick={showEscribir}>¡Haz un Comentario!</button>
@@ -117,6 +118,7 @@ const Wall = () => {
                                 <button className='cancelar' onClick={borrar}>Cancelar</button> 
                                 <button className='postear' onClick={publicacion}>Publicar</button>
                             </div>
+                        </div>
                         </div>
                     </div> 
                 })

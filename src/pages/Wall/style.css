@@ -139,7 +139,7 @@
   display: none;
 }
 
-.wall .publicaciones>input{
+.wall .publicaciones >input{
   display:none;
 }
 
@@ -149,10 +149,15 @@
   padding-left: 10px;
 }
 
+.wall .publicaciones .comment{
+  cursor: pointer;
+  border-color: black;
+  padding-left: 10px;
+}
 
 
 /*Comentarios*/
-.wall .publicaciones .publicar{
+.wall .publicaciones .sicomentarios .publicar{
   text-align: center;
   background-color: white;
   width: 90%;
@@ -165,7 +170,7 @@
   margin-bottom: 10px;
 }
 
-.wall .publicaciones .publicar img{
+.wall .publicaciones .sicomentarios .publicar img{
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -176,7 +181,7 @@
     border-width: 2px;
 }
 
-.wall .publicaciones .publicar .pensamiento{
+.wall .publicaciones .sicomentarios .publicar .pensamiento{
   border-radius: 10px;
   width: 100%;
   height: 30px;
@@ -189,19 +194,19 @@
   padding: 0px;
   align-content: center;
 }
-.wall .publicaciones .publicar .pensamiento:hover{
+.wall .publicaciones .sicomentarios .publicar .pensamiento:hover{
   background-color: rgba(77, 75, 75, 0.384);
   outline: none;
 }
-.wall .publicaciones .publicar .cuerpo{
+.wall .publicaciones .sicomentarios .publicar .cuerpo{
   display: none;
   }
 
-.wall .publicaciones .publicar .extras {
+.wall .publicaciones .sicomentarios .publicar .extras {
     display: none;
   }
 
-.wall .publicaciones .escribir{
+.wall .publicaciones .sicomentarios .escribir{
   text-align: center;
   background-color: white;
   width: 90%;
@@ -213,7 +218,7 @@
   border-width: 1px;
 }
 
-.wall .publicaciones .escribir img{
+.wall .publicaciones .sicomentarios .escribir img{
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -226,19 +231,19 @@
   margin-bottom: 50px;
 }
 
-.wall .publicaciones .escribir .pensamiento{
+.wall .publicaciones .sicomentarios .escribir .pensamiento{
   display: none;
 }
 
 
-.wall .publicaciones .escribir .extras p{
+.wall .publicaciones .sicomentarios .escribir .extras p{
   color: black;
  }
 
- .wall .publicaciones .escribir .cuerpo{
+ .wall .publicaciones .sicomentarios .escribir .cuerpo{
   border-radius: 10px;
   width: 100%;
-  height: 100px;
+  height: 50px;
   margin-left: 5px;
   background-color: rgba(131, 130, 130, 0.185);
   color:rgb(88, 0, 0);
@@ -252,12 +257,12 @@
 }
 
 
-.wall .publicaciones.escribir  p{
+.wall .publicaciones .sicomentarios .escribir  p{
    color: black;
   }
  
-  .wall .publicaciones .escribir .extras {
-    position: fixed;
+  .wall .publicaciones .sicomentarios .escribir .extras {
+    position: absolute;
     display: block;
     margin-top: 40px;
     align-self: baseline;
@@ -265,7 +270,7 @@
     margin-left: 20%;
     height: 50px;
   }
-  .wall .publicaciones .escribir .extras .postear {
+  .wall .publicaciones .sicomentarios .escribir .extras .postear {
    width: 100px;
    background-color: #800000;
    height: 20px;
@@ -274,14 +279,14 @@
    cursor: pointer;
    margin-left: 10px;
    border: none;
-   margin-top: 35px;
+   margin-top: 10px;
    margin-bottom: 0px;
    align-self: initial;
    font-size: 15px;
    align-content: center;
    padding: 0px;
  }
- .wall .publicaciones .escribir .extras .cancelar {
+ .wall .publicaciones .sicomentarios .escribir .extras .cancelar {
    width: 100px;
    background-color: rgba(51, 49, 49, 0.486);
    height: 20px;
@@ -297,6 +302,15 @@
    align-content: center;
    padding: 0px;
  }
+
+ .wall .publicaciones .nocomentarios .escribir{
+display: none;
+}
+.wall .publicaciones .nocomentarios .publicar{
+  display: none;
+  }
+
+
  
 
 
