@@ -33,11 +33,11 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
                         <img className='postimg' src={postingImage} alt="Foto de post"/><br/>
                         <div className='likecomment'>
                             <div className='icons'>
-                                <label for='like' className='icon'><h5 size='small'><AiIcons.AiFillHeart size='32px' style={like ? {fill:'#F44336'} : {fill: 'rgb(50, 50, 50)'}}/> Me gusta</h5></label>
+                                <label for='like' className='icon'><p><AiIcons.AiFillHeart size='32px' style={like ? {fill:'#F44336'} : {fill: 'rgb(50, 50, 50)'}}/> Me gusta</p></label>
                                 <input id='like' onClick={likePost}/>
                             </div>
                             <div className='icons'>
-                                <label for='comment'><h7 className='icon' size='24px'><AiIcons.AiOutlineComment size='32px' style={{fill: 'black'}}/> Comentarios</h7></label>
+                                <label for='comment'><p className='icon'><AiIcons.AiOutlineComment size='32px' style={{fill: 'black'}}/> Comentarios</p></label>
                                 <input id='comment' onClick={commentPost}/>
                             </div>
                         </div> 

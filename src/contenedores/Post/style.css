@@ -1,3 +1,6 @@
+input{
+  color: black;
+}
 
 .publicaciones{
   color: black;
@@ -90,20 +93,40 @@
 .publicaciones .likecomment{
   display: flex;
   justify-content: space-evenly;
+  align-content: center;
+  padding: 0px;
+  height: 52px;
 }
 
 .publicaciones .likecomment .icons >input{
   display:none;
 }
 
+.publicaciones .likecomment .icons{
+  border-radius: 33px;
+  justify-content: center;
+  padding: 10px 10px 25px 10px;
+  align-items: center;
+  margin-bottom: 3px;
+  padding-right: 25px;
+}
+
+.publicaciones .likecomment .icons:hover{
+  background-color: rgb(236, 235, 235);
+}
 
 .publicaciones .likecomment .icons .icon{
+  color: #000030;
   cursor: pointer;
   border-color: black;
   padding-left: 10px;
   color: #000030;
 }
 
+.publicaciones .likecomment .icons .icon >p{
+  size: 32px;
+  color: #000030;
+}
 
 
 
