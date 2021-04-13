@@ -18,11 +18,21 @@ function Navbar(){
 
     const [nombre, setNombre] = useState('');
 
+
     const history = useHistory();
     const handleLogout = () =>{
         data.signOut();
         history.push("/login");
     };
+    const perfil = () =>{
+        history.push('/perfil');
+    }
+    const message = () =>{
+        history.push('/mensajes');
+    }
+    const home = () =>{
+        history.push('/home');
+    }
 
     useEffect(() => {
 		var fotoRef = database.ref('/foto_perfil/' + data.currentUser.uid);
@@ -50,13 +60,13 @@ function Navbar(){
             </div>
             <div className='navbar__right'>
                 <div className='navbar__info'>
-                    <div className='navbar__name'>
+                    <div className='navbar__name' onClick={perfil}>
                         <img src={foto} className='foto_perfil'/>
                         <h4>{nombre}</h4>
                     </div>
                     <div className='icons'>
-                        <div className='icon'><h4><RiIcons.RiMessage2Fill/></h4></div>
-                        <div className='icon'><h4><FaIcons.FaHome/></h4></div>
+                        <div className='icon'><h4><RiIcons.RiMessage2Fill onClick={message}/></h4></div>
+                        <div className='icon'><h4><FaIcons.FaHome onClick={home}/></h4></div>
                     </div>
                 </div>
             </div>
