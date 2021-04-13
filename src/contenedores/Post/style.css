@@ -87,21 +87,24 @@
   display: none;
 }
 
-.publicaciones >input{
+.publicaciones .likecomment{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.publicaciones .likecomment .icons >input{
   display:none;
 }
 
-.publicaciones #like{
+
+.publicaciones .likecomment .icons .icon{
   cursor: pointer;
   border-color: black;
   padding-left: 10px;
+  color: #000030;
 }
 
-.publicaciones #comment{
-  cursor: pointer;
-  border-color: black;
-  padding-left: 10px;
-}
+
 
 
 /*Comentarios*/

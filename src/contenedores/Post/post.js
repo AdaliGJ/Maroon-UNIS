@@ -31,10 +31,16 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
                         <h9 className='correo'>{correo}</h9><br/>
                         <textarea className='cuerpo' readOnly value={texto}></textarea><br/>
                         <img className='postimg' src={postingImage} alt="Foto de post"/><br/>
-                        <label for='like'><h2><AiIcons.AiFillHeart style={like ? {fill:'#F44336'} : {fill: 'rgb(50, 50, 50)'}}/></h2></label>
-                        <input id='like' onClick={likePost}/>
-                        <label for='comment'><h2><AiIcons.AiOutlineComment style={{fill: 'black'}}/></h2></label>
-                        <input id='comment' onClick={commentPost}/>
+                        <div className='likecomment'>
+                            <div className='icons'>
+                                <label for='like' className='icon'><h5 size='small'><AiIcons.AiFillHeart size='32px' style={like ? {fill:'#F44336'} : {fill: 'rgb(50, 50, 50)'}}/> Me gusta</h5></label>
+                                <input id='like' onClick={likePost}/>
+                            </div>
+                            <div className='icons'>
+                                <label for='comment'><h7 className='icon' size='24px'><AiIcons.AiOutlineComment size='32px' style={{fill: 'black'}}/> Comentarios</h7></label>
+                                <input id='comment' onClick={commentPost}/>
+                            </div>
+                        </div> 
                         <div className={comment ? 'sicomentarios': 'nocomentarios'}>
                         <div className={escribir ? 'escribir' :  'publicar'}>
                             <img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
