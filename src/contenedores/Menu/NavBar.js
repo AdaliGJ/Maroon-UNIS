@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import "./navbar.css";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as CgIcons from 'react-icons/cg';
+import * as RiIcons from 'react-icons/ri';
 import data from "./../../data.js";
 import {Menu} from './Menu.js';
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
@@ -21,9 +23,25 @@ function Navbar(){
     return (
         <section className="sidemenu">
         <div className="navbar">
-            <Link to="#" className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar}/>
-            </Link>
+            <div className='navbar__left'>
+                <Link to="#" className='menu-bars'>
+                <FaIcons.FaBars onClick={showSidebar}/>
+                </Link>
+                <div className='navbar__input'>
+                    <FaIcons.FaSearch style={{fill: 'black'}}/>
+                    <input placeholder='  Buscar...' type='text'/>
+                </div>
+            </div>
+            <div className='navbar__right'>
+                <div className='navbar__info'>
+                    <h4><CgIcons.CgProfile/></h4>
+                    <h4>Name</h4>
+                    <div className='icons'>
+                        <div className='icon'><h4><RiIcons.RiMessage2Fill/></h4></div>
+                        <div className='icon'><h4><FaIcons.FaHome/></h4></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <nav className={sidebar ? 'nav-menu-active' : 'nav-menu'}>
             <ul className ='nav-menu-items'>

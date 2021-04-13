@@ -2,15 +2,15 @@ import firebase from 'firebase';
 import "firebase/storage";
 
 var firebaseConfig = {
-    apiKey: "AIzaSyC2r-CGk07oPbn_bowxVSlxTyVAvw-0pGA",
-    authDomain: "maroon-fc3ba.firebaseapp.com",
-    projectId: "maroon-fc3ba",
-    storageBucket: "maroon-fc3ba.appspot.com",
-    messagingSenderId: "921416844711",
-    appId: "1:921416844711:web:24aa16b48a7d2ebb21a282",
-    measurementId: "G-059VDBL3KK"
-  };
- 
+  apiKey: "AIzaSyD-kC2l6DkVLf-yNWdGLAw4TKwdfDBp_Y8",
+  authDomain: "maroonunis.firebaseapp.com",
+  databaseURL: "https://maroonunis-default-rtdb.firebaseio.com",
+  projectId: "maroonunis",
+  storageBucket: "maroonunis.appspot.com",
+  messagingSenderId: "671107995250",
+  appId: "1:671107995250:web:23174aca0dc5e17e25d4eb"
+};
+
   const firebaseApp = firebase.initializeApp(firebaseConfig);
 
   const data = firebase.auth();

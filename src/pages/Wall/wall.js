@@ -12,13 +12,12 @@ const Wall = () => {
 
     var [posts, setPosts] = useState([]);
 
-    const [like, setLike]=useState(false);
-    const [comment, setComment]=useState(false);
+    var [like, setLike]=useState(false);
+    var [comment, setComment]=useState(false);
 
     const likePost = () => setLike(!like);
 
     const commentPost =()=>setComment(!comment);
-
 
     const borrar = () =>{
         setTexto('');
@@ -67,7 +66,7 @@ const Wall = () => {
     
     useEffect(() => {
         database.ref('posts/' + data.currentUser.uid).orderByChild('Orden_Fecha');
-        database.ref(`posts/${data.currentUser.uid}`).on('value', snapshot =>{
+        database.ref(`posts/${data.currentUser.uid}`).orderByChild('Orden_Fecha').on('value', snapshot =>{
             if(snapshot.val()!=null)
             setPosts({
                 ...snapshot.val()

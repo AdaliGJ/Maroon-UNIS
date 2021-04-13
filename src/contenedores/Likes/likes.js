@@ -1,47 +1,65 @@
-import React, {useState, useEffect} from 'react';
-import "./style.css";
-import data, {database} from "../../data.js"
-import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
-import Navbar from '../../contenedores/Menu/NavBar';
-import * as AiIcons from 'react-icons/ai';
+import React, {Component} from 'react';
+import data, {storage, database} from './../../data.js';
 
-const Likes = () => {
 
-    var [posts, setPosts] = useState([]);
+class MostrarComentarios extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+           perfil: data.currentUser.uid,
+           cuerpo: '',
+           fecha: '',
+           hora:'',
+           texto: ''
 
-    const [like, setLike]=useState(false);
-    var [likeColor, setLikeColor]=useState('#FFFFFF');
-
-    const likePost = () => setLike(!like);
-    const colorLike = () =>{
-        if(like){
-            return '#800000';
         }
-        else{
-            return '#FFFFFF';
+        this.handleChange = this.handleChange.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
+    }
+
+    getCuerpo = (post)=>{
+        const key = Object.getKey(post);
+    }
+
+    handleChange = e => {
+        if(e.target.files[0]){
+            const image = e.target.files[0];
+           this.setState(() => ({image}));
         }
     }
 
-
-    
-    useEffect(() => {
-        database.ref('posts/' + data.currentUser.uid).orderByChild('Orden_Fecha');
-        database.ref(`posts/${data.currentUser.uid}`).on('value', snapshot =>{
-            if(snapshot.val()!=null)
-            setPosts({
-                ...snapshot.val()
+    handleUpload = () => {
+        const {image} =this.state;
+        const uploadTask = storage.ref(`perfil/${image.name}`).put(image);
+        uploadTask.on('state_changed', 
+        (snapshot)=>{
+           //Progress function
+           const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes)*100);
+           this.setState({progress});
+        }, 
+        (error) => {
+            //error function
+           console.log(error);
+        }, 
+        ()=>{
+            //complete function
+            storage.ref('perfil').child(image.name).getDownloadURL().then(url => {
+                console.log(url);
+                this.setState({url});
+                database.ref(`foto_perfil/${data.currentUser.uid}`).set({
+                   Foto: url
+                })
             })
         });
-    }, [])
+    }
+    
+    render(){
+        return(
+            <section className="upload">
 
-    return(
-    <section className="meGusta">
-         <div className='likesTotal'>
-            <label className='heart' for='like'><h2><AiIcons.AiFillHeart style={{fill: {colorLike}}} /></h2></label>
-            <input id='like' onClick={likePost}/>
-        </div> 
-    </section>
-    );
+            </section>
+        )
+    }
 }
 
-export default Likes;
+export default MostrarComentarios;
