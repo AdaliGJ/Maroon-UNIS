@@ -49,7 +49,7 @@ const Posting = () => {
         setImagen(false);
     }
 
-    const publicacion = () =>{
+    const publicacion = () =>{        
         pushObj();
         setTexto('');
         showEscribir();

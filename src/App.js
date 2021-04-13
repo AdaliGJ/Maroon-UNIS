@@ -12,7 +12,7 @@ import Wall from './pages/Wall/wall.js';
 import Buscar from './contenedores/Search/search.js';
 import ImageUpload from './componentes/UploadImage/ImageUpload.js';
 import EditarP from './pages/EditarP/editarp.js';
-import Post from './contenedores/Post/post.js';
+
 
     const App = () =>{
       return(
@@ -29,7 +29,6 @@ import Post from './contenedores/Post/post.js';
             <Route path="/mi-muro" component={Wall}/>
             <Route path="/buscar" component={Buscar}/>
             <Route path="/editar-perfil" component={EditarP}/>
-            <Route path="/post" component={Post}/>
             <Redirect path="/" to="/login"></Redirect>
           </Switch>
         </Router>  

@@ -4,6 +4,7 @@ import data from "./../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
+import Post from './../../contenedores/Post/post.js';
 
 const Home = () => {
     const history = useHistory();
@@ -18,7 +19,23 @@ const Home = () => {
     return(
     <section className="home">
         <Navbar/>
-        <Posting/>    
+        <Posting/>
+        <Post
+            nombre='Adalí Garrán'
+            fecha='fecha'
+            correo='adaligaji@hotmail.com'
+            texto='Hola'
+            foto='https://i.pinimg.com/originals/19/87/90/198790eb7e08830027c1ae1686496c72.png'
+            postingImage='https://www.luisan.net/blog/wp-content/uploads/2014/09/color_small_mk-e1549454603143.png'
+        />  
+        <Post
+            nombre='Adalí Garrán'
+            fecha='fecha'
+            correo='adaligaji@hotmail.com'
+            texto='Hola'
+            foto='https://i.pinimg.com/originals/19/87/90/198790eb7e08830027c1ae1686496c72.png'
+            postingImage=''
+        />   
     </section>
     );
 }

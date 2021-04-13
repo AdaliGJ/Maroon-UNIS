@@ -1,23 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import "./navbar.css";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as CgIcons from 'react-icons/cg';
 import * as RiIcons from 'react-icons/ri';
-import data from "./../../data.js";
+import data, {database} from "./../../data.js";
 import {Menu} from './Menu.js';
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 
 function Navbar(){
+
+    const[foto, setFoto]=useState('');
+    
     const [sidebar,setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
+
+    const [nombre, setNombre] = useState('');
 
     const history = useHistory();
     const handleLogout = () =>{
         data.signOut();
         history.push("/login");
     };
+
+    useEffect(() => {
+		var fotoRef = database.ref('/foto_perfil/' + data.currentUser.uid);
+		fotoRef.once('value').then((snapshot)=>{
+		setFoto(snapshot.val().Foto);
+	});
+        var userRef = database.ref('/usuarios/' + data.currentUser.uid);
+        userRef.once('value').then((snapshot)=>{
+        setNombre(snapshot.val().Nombre);
+    });
+	}, [])
 
 
     return (
@@ -34,8 +50,10 @@ function Navbar(){
             </div>
             <div className='navbar__right'>
                 <div className='navbar__info'>
-                    <h4><CgIcons.CgProfile/></h4>
-                    <h4>Name</h4>
+                    <div className='navbar__name'>
+                        <img src={foto} className='foto_perfil'/>
+                        <h4>{nombre}</h4>
+                    </div>
                     <div className='icons'>
                         <div className='icon'><h4><RiIcons.RiMessage2Fill/></h4></div>
                         <div className='icon'><h4><FaIcons.FaHome/></h4></div>
