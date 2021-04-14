@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import "./style.css";
-import data, {database} from "../../data.js"
+import data, {database, db} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
@@ -66,13 +66,9 @@ const Wall = () => {
 
     
     useEffect(() => {
-        database.ref(`posts/${data.currentUser.uid}`).orderByChild('Fecha_publicación').on('value', snapshot =>{
-            if(snapshot.val()!=null)
-            setPosts({
-                ...snapshot.val()
-            })
-        });
-
+        db.collection('posts').orderBy('fecha_publicación', 'desc').where('UID', '==', data.currentUser.uid).onSnapshot(snapshot => {
+            setPosts(snapshot.docs.map(doc => ({ id: doc.id, datos: doc.data()})))
+          });
         var recentPostsRef = database.ref('/usuarios/'+ userId);
     	recentPostsRef.once('value').then((snapshot) => {
       	console.log(snapshot.val());
@@ -95,18 +91,19 @@ const Wall = () => {
         </header>
         <h3>Mi Muro</h3>
         <div>
-            {
-                Object.keys(posts).map(id =>{
-                    return <Post
-                            nombre={posts[id].Nombre}
-                            fecha={posts[id].Fecha_publicación}
-                            correo={posts[id].Correo}
-                            texto={posts[id].Cuerpo}
-                            foto={posts[id].Foto}
-                            postingImage={posts[id].Imagen_Post}
-                        />
-                })
-            }
+        {posts.map(post => (
+            <Post
+                key={post.datos.id}
+                nombre={post.datos.nombre}
+                foto={post.datos.foto}
+                correo={post.datos.correo}
+                texto={post.datos.cuerpo}
+                fecha={post.datos.fecha_string}
+                postingImage={post.datos.imagen_Post}
+                carrera={post.datos.carrera}
+                hora={post.datos.hora}
+      />
+      ))}
         </div>
     </section>
     );
