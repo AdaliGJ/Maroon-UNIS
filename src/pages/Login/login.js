@@ -2,8 +2,12 @@ import React, {useState, useEffect} from 'react';
 import "./../Login/style.css";
 import {Route, BrowserRouter as Router, Switch, Link, Redirect, useHistory} from "react-router-dom";
 import data from "./../../data.js";
+import {actionTypes} from './../../reducer.js';
+import {useStateValue} from './../../StateProvider.js';
 
     const Login = () =>{
+
+        const [state, dispatch] = useStateValue();
         
         const [user, setUser] = useState('');
         const [email, setEmail] = useState('');
@@ -28,6 +32,12 @@ import data from "./../../data.js";
           clearErrors();
           data
             .signInWithEmailAndPassword(email, password)
+            .then((result)=>{
+              dispatch({
+                type: actionTypes.SET_USER,
+                user: result.user,
+              });
+            })
             .catch(err =>{
               switch(err.code){
                 case "auth/invalid-email":

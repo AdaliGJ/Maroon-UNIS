@@ -12,13 +12,14 @@ import Wall from './pages/Wall/wall.js';
 import Buscar from './contenedores/Search/search.js';
 import ImageUpload from './componentes/UploadImage/ImageUpload.js';
 import EditarP from './pages/EditarP/editarp.js';
+import { useStateValue } from './StateProvider';
 
 
     const App = () =>{
+
       return(
         <Router>
 	        <div className="App">
-          </div>
           <Switch>
             <Route exact path="/login" component={Login}/>
             <Route path="/registro" component={Registro}/>
@@ -31,6 +32,7 @@ import EditarP from './pages/EditarP/editarp.js';
             <Route path="/editar-perfil" component={EditarP}/>
             <Redirect path="/" to="/login"></Redirect>
           </Switch>
+          </div>
         </Router>  
 	    );
 };

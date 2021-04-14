@@ -36,3 +36,7 @@
     border-color: white;
     background: #880000;
   }
+
+  img [src=''] {
+    display: none;
+  }

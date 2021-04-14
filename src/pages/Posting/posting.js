@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import "./style.css";
-import data, {database, storage} from "./../../data.js";
+import data, {database, storage, db} from "./../../data.js";
 import * as AiIcons from 'react-icons/ai';
+import firebase from 'firebase';
 
 
 const Posting = () => {
@@ -69,7 +70,7 @@ const Posting = () => {
     const showImagen = () => setImagen(!imagen);
 
 
-    const pushObj = () =>{
+    const pushObj1 = () =>{
 		var usersRef = database.ref(`posts/${data.currentUser.uid}`);
 		usersRef.push({
 			Nombre: name,
@@ -81,6 +82,26 @@ const Posting = () => {
             Imagen_Post: postingImage,
             Likes: like,
             Hora: hora
+		},
+		err =>{
+			if(err)
+				console.log(err)
+		});
+	}
+
+    const pushObj = () =>{
+		var usersRef = db.collection('posts');
+		usersRef.add({
+			nombre: name,
+			carrera: carrera,
+			fecha_publicación: firebase.firestore.FieldValue.serverTimestamp(),
+            fecha_string: fecha,
+			correo: correo,
+            cuerpo: texto,
+			foto: foto,
+            imagen_Post: postingImage,
+            UID: data.currentUser.uid,
+            hora: hora
 		},
 		err =>{
 			if(err)

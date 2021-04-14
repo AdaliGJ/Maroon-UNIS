@@ -22,7 +22,7 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
         setComentario('');
         showEscribir();
     }
-    
+
     return(
             <div className='publicaciones'>
                         <img className='foto' src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>

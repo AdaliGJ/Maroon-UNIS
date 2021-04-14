@@ -7,6 +7,7 @@ import Posting from './../Posting/posting.js';
 import * as AiIcons from 'react-icons/ai';
 import Likes from './../../contenedores/Likes/likes.js';
 import Comments from './../../contenedores/Comments/comments';
+import Post from './../../contenedores/Post/post.js';
 
 const Wall = () => {
 
@@ -65,8 +66,7 @@ const Wall = () => {
 
     
     useEffect(() => {
-        database.ref('posts/' + data.currentUser.uid).orderByChild('Orden_Fecha');
-        database.ref(`posts/${data.currentUser.uid}`).orderByChild('Orden_Fecha').on('value', snapshot =>{
+        database.ref(`posts/${data.currentUser.uid}`).orderByChild('Fecha_publicación').on('value', snapshot =>{
             if(snapshot.val()!=null)
             setPosts({
                 ...snapshot.val()
@@ -97,29 +97,14 @@ const Wall = () => {
         <div>
             {
                 Object.keys(posts).map(id =>{
-                    return <div className='publicaciones'>
-                        <img className='foto' src={posts[id].Foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
-                        <h7 className='nombre'><Link to ='/perfil'>{posts[id].Nombre}</Link>, {posts[id].Carrera}</h7>
-                        <p className='fecha'>Publicado: {posts[id].Fecha_publicación}, {posts[id].Hora}</p>
-                        <h9 className='correo'>{posts[id].Correo}</h9><br/>
-                        <textarea className='cuerpo' readOnly value={posts[id].Cuerpo}></textarea><br/>
-                        <img className='postimg' src={posts[id].Imagen_Post} alt="Foto de post"/><br/>
-                        <label for='like'><h2><AiIcons.AiFillHeart style={like ? {fill:'#F44336'} : {fill: 'rgb(50, 50, 50)'}}/></h2></label>
-                        <input id='like' onClick={likePost}/>
-                        <label for='comment'><h2><AiIcons.AiOutlineComment style={{fill: 'black'}}/></h2></label>
-                        <input id='comment' onClick={commentPost}/>
-                        <div className={comment ? 'sicomentarios': 'nocomentarios'}>
-                        <div className={escribir ? 'escribir' :  'publicar'}>
-                            <img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
-                            <button className='pensamiento' onClick={showEscribir}>¡Haz un Comentario!</button>
-                            <textarea className='cuerpo' value={texto} placeholder='Escribe algo...' onChange={(e)=>setTexto(e.target.value)}></textarea><br/>
-                            <div className='extras'>
-                                <button className='cancelar' onClick={borrar}>Cancelar</button> 
-                                <button className='postear' onClick={publicacion}>Publicar</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div> 
+                    return <Post
+                            nombre={posts[id].Nombre}
+                            fecha={posts[id].Fecha_publicación}
+                            correo={posts[id].Correo}
+                            texto={posts[id].Cuerpo}
+                            foto={posts[id].Foto}
+                            postingImage={posts[id].Imagen_Post}
+                        />
                 })
             }
         </div>

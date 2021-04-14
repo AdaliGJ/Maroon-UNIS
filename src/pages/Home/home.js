@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./style.css";
-import data from "./../../data.js"
+import data, {db} from "./../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
@@ -14,12 +14,35 @@ const Home = () => {
         history.push("/login");
     };
 
+    const [posts, setPosts] = useState([]);
+    const [fechaString, setFechaString]=useState('');
+
+    useEffect(() => {
+        db.collection('posts').orderBy('fecha_publicación', 'desc').onSnapshot(snapshot => {
+          setPosts(snapshot.docs.map(doc => ({ id: doc.id, datos: doc.data()})))
+        })
+      }, [])
+
 
 
     return(
     <section className="home">
         <Navbar/>
         <Posting/>
+
+        {posts.map(post => (
+            <Post
+                key={post.datos.id}
+                nombre={post.datos.nombre}
+                foto={post.datos.foto}
+                correo={post.datos.correo}
+                texto={post.datos.cuerpo}
+                fecha={post.datos.fecha_string}
+                postingImage={post.datos.imagen_Post}
+                carrera={post.datos.carrera}
+                hora={post.datos.hora}
+      />
+      ))}
         <Post
             nombre='Adalí Garrán'
             fecha='fecha'
