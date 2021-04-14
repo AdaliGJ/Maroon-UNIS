@@ -24,6 +24,7 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
     }
 
     return(
+        <Router>
             <div className='publicaciones'>
                         <img className='foto' src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
                         <h7 className='nombre'><Link to ='/perfil'>{nombre}</Link>, {carrera}</h7>
@@ -45,7 +46,7 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
                         <div className={escribir ? 'escribir' :  'publicar'}>
                             <img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
                             <button className='pensamiento' onClick={showEscribir}>¡Haz un Comentario!</button>
-                            <textarea className='cuerpo' value={comentario} placeholder='Escribe algo...' onChange={(e)=>setComentario(e.target.value)}></textarea><br/>
+                            <textarea className='cuerpo' data-testid='comentar' value={comentario} placeholder='Escribe algo...' onChange={(e)=>setComentario(e.target.value)}></textarea><br/>
                             <div className='extras'>
                                 <button className='cancelar' onClick={borrar}>Cancelar</button> 
                                 <button className='postear'>Publicar</button>
@@ -53,6 +54,7 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
                         </div>
                         </div>
                     </div> 
+                    </Router> 
     );
  
 }

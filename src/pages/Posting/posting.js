@@ -69,26 +69,6 @@ const Posting = () => {
 
     const showImagen = () => setImagen(!imagen);
 
-
-    const pushObj1 = () =>{
-		var usersRef = database.ref(`posts/${data.currentUser.uid}`);
-		usersRef.push({
-			Nombre: name,
-			Carrera: carrera,
-			Fecha_publicación: fecha,
-			Correo: correo,
-            Cuerpo: texto,
-			Foto: foto,
-            Imagen_Post: postingImage,
-            Likes: like,
-            Hora: hora
-		},
-		err =>{
-			if(err)
-				console.log(err)
-		});
-	}
-
     const pushObj = () =>{
 		var usersRef = db.collection('posts');
 		usersRef.add({
@@ -134,7 +114,7 @@ const Posting = () => {
         <div className={escribir ? 'escribir' :  "publicar"}>
             <img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
             <button className='pensamiento' onClick={showEscribir}>Publica algo en tu muro</button>
-            <textarea className='cuerpo' value={texto} placeholder='Escribe algo...' onChange={(e)=>setTexto(e.target.value)}></textarea>
+            <textarea className='cuerpo' data-testid='cuerpo' value={texto} placeholder='Escribe algo...' onChange={(e)=>setTexto(e.target.value)}></textarea>
             <div className={imagen ? 'extras_imagen' : 'extras'}>
                 <button className='imagen' onClick={showImagen}><AiIcons.AiOutlinePicture size={20} style={{ fill: '#800000' }}/> Subir una imagen</button><br/>
                 <label for="file-input">
