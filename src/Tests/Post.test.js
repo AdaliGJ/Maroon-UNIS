@@ -75,7 +75,7 @@ it('Activa comentarios', ()=>{
 
 })
 
-it('Activa comentarios', ()=>{
+it('Activa escribir comentarios', ()=>{
     const {queryByTestId} = render(<Post/>);
 
     fireEvent.click(queryByTestId('comment'));
@@ -85,6 +85,21 @@ it('Activa comentarios', ()=>{
     fireEvent.click(queryByTestId('pensamiento'));
 
     expect(queryByTestId('escribircomentarios')).toHaveAttribute('class', 'escribir');
+
+})
+
+it('Cancela comentarios', ()=>{
+    const {queryByTestId} = render(<Post/>);
+
+    fireEvent.click(queryByTestId('comment'));
+    fireEvent.click(queryByTestId('pensamiento'));
+
+    expect(queryByTestId('escribircomentarios')).toHaveAttribute('class', 'escribir');
+
+    fireEvent.click(queryByTestId('cancelar'));
+
+    expect(queryByTestId('escribircomentarios')).toHaveAttribute('class', 'publicar');
+
 
 })
 
