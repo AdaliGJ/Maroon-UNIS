@@ -41,6 +41,11 @@ const CrearP = () => {
 	}
 
 	const pushObj = () =>{
+		var fotoRef = database.ref('/foto_perfil/' + data.currentUser.uid);
+		fotoRef.once('value').then((snapshot)=>{
+		setFoto(snapshot.val().Foto);
+		});
+		
 		var usersRef = database.ref('/usuarios/' + data.currentUser.uid);
 		usersRef.set({
 			Nombre: name,
@@ -48,6 +53,7 @@ const CrearP = () => {
 			Carrera: carrera,
 			Fecha_nacimiento: fecha,
 			Correo: correo,
+			Foto_perfil: foto,
 			Facultad: facultad,
 			UID: uid
 		},

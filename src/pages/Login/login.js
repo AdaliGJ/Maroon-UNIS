@@ -15,7 +15,9 @@ import {useStateValue} from './../../StateProvider.js';
         const [emailError, setEmailError] = useState('');
         const [passwordError, setPasswordError] = useState('');
         const [hasAccount, setHasAccount] = useState(false);
-
+        
+        
+        
         const[foto, setFoto]=useState('');
 
         const history = useHistory();

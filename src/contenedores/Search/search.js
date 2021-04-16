@@ -9,7 +9,7 @@ const Buscar = () => {
 
     const [searchTerm, setSearchTerm]=useState('');
     const [usuarios, setUsuarios]=useState([]);
-    const [foto, setFoto] = useState('');
+    var [foto, setFoto] = useState('');
 
     useEffect(() => {
         database.ref('usuarios/').on('value', snapshot =>{
@@ -38,14 +38,8 @@ const Buscar = () => {
                         return val;
                     }
                 }).map(id => {
-                    var fotoRef = database.ref('foto_perfil'+ usuarios[id].UID);
-                    fotoRef.once('value').then((snapshot) => {
-                        setFoto(snapshot.val().Foto);
-                        console.log(snapshot.val().Foto);
-                    });
-
                 return <div className='resultados'>
-                    <img className='perfil' src = 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'></img>
+                    <img className='perfil' src ={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'}></img>
                     <h5>{usuarios[id].Nombre}</h5>
                     <h7>Correo: {usuarios[id].Correo}</h7><br/>
                     <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
