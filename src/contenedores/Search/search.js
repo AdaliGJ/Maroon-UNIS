@@ -36,7 +36,6 @@ const Buscar = () => {
                         return val;
                     }
                 }).map(id => {
-                    var [foto, setFoto] = useState('');
                     var fotoRef = database.ref('foto_perfil'+ usuarios[id].UID);
                     fotoRef.once('value').then((snapshot) => {
                         setFoto(snapshot.val().Foto);
