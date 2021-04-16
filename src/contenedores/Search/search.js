@@ -9,12 +9,20 @@ const Buscar = () => {
 
     const [searchTerm, setSearchTerm]=useState('');
     const [usuarios, setUsuarios]=useState([]);
-    var [foto, setFoto] = useState('');
+    /*var [foto, setFoto] = useState('');*/
+    const [fotosPerfil, setFotosPerfil]=useState([]);
 
     useEffect(() => {
         database.ref('usuarios/').on('value', snapshot =>{
             if(snapshot.val()!=null)
             setUsuarios({
+                ...snapshot.val()
+            })
+        })
+
+        database.ref('foto_perfil/').on('value', snapshot =>{
+            if(snapshot.val()!=null)
+            setFotosPerfil({
                 ...snapshot.val()
             })
         })
@@ -38,13 +46,13 @@ const Buscar = () => {
                         return val;
                     }
                 }).map(id => {
-                return <div className='resultados'>
-                    <img className='perfil' src ={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'}></img>
+                 return <div className='resultados'>
+                    <img className='perfil' src ={fotosPerfil[id].Foto ||'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'}></img>
                     <h5>{usuarios[id].Nombre}</h5>
                     <h7>Correo: {usuarios[id].Correo}</h7><br/>
                     <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
                     <h7>Carnet #{usuarios[id].Carnet}</h7>
-                </div>
+                </div> 
                 })
             }
     </section>

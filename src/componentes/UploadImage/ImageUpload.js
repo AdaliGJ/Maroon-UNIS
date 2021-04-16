@@ -45,7 +45,7 @@ import React, {Component} from 'react';
              })
          });
      }
-     
+
      render(){
          return(
              <section className="upload">

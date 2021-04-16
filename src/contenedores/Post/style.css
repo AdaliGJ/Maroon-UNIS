@@ -81,8 +81,9 @@ input{
   margin-right: auto;
   align-content: center;
   border-radius: 0px;
-  height: 200px;
-  width: auto;
+  height: auto;
+  max-height: 200px;
+  max-width: 100%;
   display: block;
 }
 
