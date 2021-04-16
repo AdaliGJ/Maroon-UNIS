@@ -88,20 +88,21 @@
   border-style: solid;
   width: 55%;
   padding: 15px;
-  display:block;
   border-radius: 33px;
   box-shadow: 20px 20px 30px -20px rgba(11, 0, 53, 0.8);
 }
 
 .search .resultados > h7{
-  color: black
+  color: gray;
+  font-size: 15px;
+  justify-self: center;
 }
 
 .search .resultados > img{
   float: left;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 100px;
   border: 1px;
   border-color: #000030;
   border-style: solid;

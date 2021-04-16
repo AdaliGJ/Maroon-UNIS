@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import "./style.css";
-import data from "./../../data.js"
+import data, {database} from "./../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory, Redirect} from "react-router-dom";
 
     const Registro = () =>{

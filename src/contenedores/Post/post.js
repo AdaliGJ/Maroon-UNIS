@@ -26,7 +26,7 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage}
     return(
             <div className='publicaciones'>
                         <img className='foto' data-testid='foto' src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} alt="Foto de perfil"/>
-                        <h7 className='nombre' data-testid='nombre'><Link to ='/perfil'>{nombre}</Link>, {carrera}</h7>
+                        <h7 className='nombre' data-testid='nombre'><Link to ='#'>{nombre}</Link>, {carrera}</h7>
                         <p className='fecha' data-testid='fecha'>Publicado: {fecha}, {hora}</p>
                         <h9 className='correo' data-testid='correo'>{correo}</h9><br/>
                         <textarea className='cuerpo' data-testid='cuerpo' readOnly value={texto}></textarea><br/>
