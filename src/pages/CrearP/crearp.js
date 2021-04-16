@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import firebase from 'firebase';
 import "./../CrearP/style.css";
 import data from "./../../data.js";
@@ -48,13 +48,21 @@ const CrearP = () => {
 			Fecha_nacimiento: fecha,
 			Correo: correo,
 			Facultad: facultad,
-			UID: uid
+			UID: uid,
+			Foto: foto
 		},
 		err =>{
 			if(err)
 				console.log(err)
 		});
 	}
+
+	useEffect(() => {
+		var fotoRef = database.ref('/foto_perfil/' + data.currentUser.uid);
+		fotoRef.once('value').then((snapshot)=>{
+		setFoto(snapshot.val().Foto);
+	});
+	}, [])
 
 	
 	const handleLogout = () =>{

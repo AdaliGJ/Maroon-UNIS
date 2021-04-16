@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "./../Login/style.css";
 import {Route, BrowserRouter as Router, Switch, Link, Redirect, useHistory} from "react-router-dom";
-import data from "./../../data.js";
+import data, {database} from "./../../data.js";
 import {actionTypes} from './../../reducer.js';
 import {useStateValue} from './../../StateProvider.js';
 
@@ -15,6 +15,8 @@ import {useStateValue} from './../../StateProvider.js';
         const [emailError, setEmailError] = useState('');
         const [passwordError, setPasswordError] = useState('');
         const [hasAccount, setHasAccount] = useState(false);
+
+        const[foto, setFoto]=useState('');
 
         const history = useHistory();
   
@@ -50,11 +52,11 @@ import {useStateValue} from './../../StateProvider.js';
                   break;
               }
             });
-
         };
-
+        
         const authListener = () =>{
-            data.onAuthStateChanged(user =>{
+          
+          data.onAuthStateChanged(user =>{
               if(user){
                 clearInputs();
                 setUser(user);

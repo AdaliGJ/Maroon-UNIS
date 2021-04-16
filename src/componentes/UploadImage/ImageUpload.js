@@ -1,4 +1,4 @@
- import React, {Component} from 'react';
+import React, {Component} from 'react';
  import data, {storage, database} from './../../data.js';
  import "./imageU.css";
  

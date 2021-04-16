@@ -61,7 +61,7 @@ function Navbar(){
             <div className='navbar__right'>
                 <div className='navbar__info'>
                     <div className='navbar__name' onClick={perfil}>
-                        <img src={foto} className='foto_perfil'/>
+                        <img src={foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'} className='foto_perfil'/>
                         <h4>{nombre}</h4>
                     </div>
                     <div className='icons'>
