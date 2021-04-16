@@ -36,10 +36,15 @@ const Buscar = () => {
                         return val;
                     }
                 }).map(id => {
-                    const foto = database.ref('foto_perfil'+ usuarios[id].UID);
+                    var [foto, setFoto] = useState('');
+                    var fotoRef = database.ref('foto_perfil'+ usuarios[id].UID);
+                    fotoRef.once('value').then((snapshot) => {
+                        setFoto(snapshot.val().Foto);
+                        console.log(snapshot.val().Foto);
+                    });
 
                 return <div className='resultados'>
-                    <img className='perfil' onError='ths.src = https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' src={foto}></img>
+                    <img className='perfil' onError='this.src = https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' src={foto}></img>
                     <h5>{usuarios[id].Nombre}</h5>
                     <h7>Correo: {usuarios[id].Correo}</h7><br/>
                     <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
