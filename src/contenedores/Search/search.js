@@ -18,6 +18,7 @@ const Buscar = () => {
                 ...snapshot.val()
             })
         })
+
     }, [])
 
     return(
@@ -44,7 +45,7 @@ const Buscar = () => {
                     });
 
                 return <div className='resultados'>
-                    <img className='perfil' onError='this.src = https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' src={foto}></img>
+                    <img className='perfil' src = 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d'></img>
                     <h5>{usuarios[id].Nombre}</h5>
                     <h7>Correo: {usuarios[id].Correo}</h7><br/>
                     <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
