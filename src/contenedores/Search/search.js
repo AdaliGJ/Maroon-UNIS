@@ -9,7 +9,7 @@ const Buscar = () => {
 
     const [searchTerm, setSearchTerm]=useState('');
     const [usuarios, setUsuarios]=useState([]);
-    /*var [foto, setFoto] = useState('');*/
+    var [foto, setFoto] = useState('');
     const [fotosPerfil, setFotosPerfil]=useState([]);
 
     useEffect(() => {
