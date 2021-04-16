@@ -9,6 +9,7 @@ const Buscar = () => {
 
     const [searchTerm, setSearchTerm]=useState('');
     const [usuarios, setUsuarios]=useState([]);
+    const [foto, setFoto] = useState('');
 
     useEffect(() => {
         database.ref('usuarios/').on('value', snapshot =>{
