@@ -23,14 +23,14 @@ const CrearP = () => {
 
 	const pushObj1 = () =>{
 		var usersRef = db.collection('usuarios');
-		usersRef.add({
-			Nombre: name,
-			Carnet: carnet,
-			Carrera: carrera,
-			Fecha_nacimiento: fecha,
-			Correo: correo,
-			Facultad: facultad,
-			UID: uid
+		usersRef.set({
+			nombre: name,
+			carnet: carnet,
+			carrera: carrera,
+			fecha_nacimiento: fecha,
+			correo: correo,
+			facultad: facultad,
+			uid: uid
 		},
 		err =>{
 			if(err)
@@ -61,6 +61,7 @@ const CrearP = () => {
         data.signOut();
         history.push("/login");
 		pushObj();
+		pushObj1();
     };
 
     return(
