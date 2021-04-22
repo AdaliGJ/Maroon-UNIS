@@ -4,6 +4,7 @@ import data, {database} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import * as FaIcons from 'react-icons/fa';
+import * as MdIcons from 'react-icons/md';
 
 const Buscar = () => {
 
@@ -47,11 +48,16 @@ const Buscar = () => {
                     }
                 }).map(id => {
                  return <div className='resultados'>
-                    <img className='perfil' src ={'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' }></img>
-                    <h5>{usuarios[id].Nombre}</h5>
-                    <h7>Correo: {usuarios[id].Correo}</h7><br/>
-                    <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
-                    <h7>Carnet #{usuarios[id].Carnet}</h7>
+                        <div className = 'resultados__left'>
+                        <img className='perfil' src ={fotosPerfil[id].Foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' }></img>
+                        <h5>{usuarios[id].Nombre}</h5>
+                        <h7>Correo: {usuarios[id].Correo}</h7><br/>
+                        <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
+                        <h7>Carnet #{usuarios[id].Carnet}</h7>
+                    </div>
+                    <div className = 'resultados__right'>
+                        <h5><MdIcons.MdPersonAdd style={{fill: 'black'}}/></h5>
+                    </div> 
                 </div> 
                 })
             }
