@@ -4,7 +4,8 @@ import data, {database} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import * as FaIcons from 'react-icons/fa';
-import * as MdIcons from 'react-icons/md';
+import * as RiIcons from 'react-icons/ri';
+import Follow from '../Follow/follow.js';
 
 const Buscar = () => {
 
@@ -12,6 +13,10 @@ const Buscar = () => {
     const [usuarios, setUsuarios]=useState([]);
     var [foto, setFoto] = useState('');
     const [fotosPerfil, setFotosPerfil]=useState([]);
+
+    const [seguir, setSeguir] = useState(false);
+
+    const follow = ()=> setSeguir(!seguir);
 
     useEffect(() => {
         database.ref('usuarios/').on('value', snapshot =>{
@@ -48,17 +53,15 @@ const Buscar = () => {
                     }
                 }).map(id => {
                  return <div className='resultados'>
-                        <div className = 'resultados__left'>
-                        <img className='perfil' src ={fotosPerfil[id].Foto || 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' }></img>
+                    <img className='perfil' src ={ 'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' }></img>
+                    <div className="resultados__left">
                         <h5>{usuarios[id].Nombre}</h5>
                         <h7>Correo: {usuarios[id].Correo}</h7><br/>
                         <h7>Carrera: {usuarios[id].Carrera}</h7><br/>
                         <h7>Carnet #{usuarios[id].Carnet}</h7>
                     </div>
-                    <div className = 'resultados__right'>
-                        <h5><MdIcons.MdPersonAdd style={{fill: 'black'}}/></h5>
+                        <Follow useruid={usuarios[id].UID}/>
                     </div> 
-                </div> 
                 })
             }
     </section>

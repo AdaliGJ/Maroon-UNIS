@@ -11,6 +11,7 @@ import Chat from './pages/Chat/chat.js';
 import Wall from './pages/Wall/wall.js';
 import Buscar from './contenedores/Search/search.js';
 import ImageUpload from './componentes/UploadImage/ImageUpload.js';
+import Follow from './contenedores/Follow/follow.js';
 import EditarP from './pages/EditarP/editarp.js';
 import { useStateValue } from './StateProvider';
 
@@ -30,6 +31,7 @@ import { useStateValue } from './StateProvider';
             <Route path="/mi-muro" component={Wall}/>
             <Route path="/buscar" component={Buscar}/>
             <Route path="/editar-perfil" component={EditarP}/>
+            <Route path="/follow" component={Follow}/>
             <Redirect path="/" to="/login"></Redirect>
           </Switch>
           </div>

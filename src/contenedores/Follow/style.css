@@ -1,0 +1,49 @@
+.follow{
+    justify-self: center;
+    width: max-content;
+    align-self: center;
+    display: flex;
+    margin-left: auto;
+    padding: 4px;
+    justify-content: center;
+    align-content: center;
+    right: 0;
+}
+  
+  .follow:hover{
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+  }
+  
+  .follow > div{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+
+  .follow > div> p{
+    margin-top: auto;
+    margin-bottom: auto;
+    color: black;
+  }
+  
+  .follow > div> h5{
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size:x-large;
+    color: black;
+    margin: auto;
+    margin-left: 20%;
+  }
+  
+  .follow  .nosiguiendo .si{
+    display: none;
+  }
+  
+  .follow .siguiendo .no{
+    display: none;
+  }
+
+  .follow .siguiendo> h5{
+    margin-left:35%;
+  }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import "./style.css";
-import data, {db} from "./../../data.js"
+import data, {db, database} from "./../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import Posting from './../Posting/posting.js';
 import Post from './../../contenedores/Post/post.js';
+
 
 const Home = () => {
     const history = useHistory();
@@ -14,8 +15,10 @@ const Home = () => {
         history.push("/login");
     };
 
+
     const [posts, setPosts] = useState([]);
     const [fechaString, setFechaString]=useState('');
+    const [seguidores, setSeguidores]=useState();
 
     useEffect(() => {
         db.collection('posts').orderBy('fecha_publicación', 'desc').onSnapshot(snapshot => {
