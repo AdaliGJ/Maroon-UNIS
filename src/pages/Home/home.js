@@ -24,6 +24,8 @@ const Home = () => {
         db.collection('posts').orderBy('fecha_publicación', 'desc').onSnapshot(snapshot => {
           setPosts(snapshot.docs.map(doc => ({ id: doc.id, datos: doc.data()})))
         })
+
+        
       }, [])
 
 
@@ -49,6 +51,7 @@ const Home = () => {
       />
       ))}
         <Post
+            id="2"
             nombre='Adalí Garrán'
             fecha='fecha'
             correo='adaligaji@hotmail.com'
@@ -57,6 +60,7 @@ const Home = () => {
             postingImage='https://www.luisan.net/blog/wp-content/uploads/2014/09/color_small_mk-e1549454603143.png'
         />  
         <Post
+            id="2"
             nombre='Adalí Garrán'
             fecha='fecha'
             correo='adaligaji@hotmail.com'

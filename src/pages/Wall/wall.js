@@ -93,6 +93,7 @@ const Wall = () => {
         <div>
         {posts.map(post => (
             <Post
+                id={post.id}
                 key={post.datos.id}
                 nombre={post.datos.nombre}
                 foto={post.datos.foto}

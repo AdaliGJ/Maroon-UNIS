@@ -69,17 +69,21 @@ function Post ({nombre, fecha, carrera, correo, texto, foto, hora, postingImage,
                         <h9 className='correo' data-testid='correo'>{correo}</h9><br/>
                         <textarea className='cuerpo' data-testid='cuerpo' readOnly value={texto}></textarea><br/>
                         <img className='postimg' data-testid='postimg' src={postingImage} alt="Foto de post"/><br/>
-                            <Like/>
+                        <div className="likecomment">
+                            <Like postkey={id}/>
                             <div className='icons' data-testid='icons2'>
                                 <label for='comment'><p className='icon' data-testid='icon2'><AiIcons.AiOutlineComment size='32px' style={{fill: 'black'}}/> Comentarios</p></label>
                                 <input id='comment'  data-testid='comment' onClick={commentPost}/>
                             </div>
+                        </div>
                         <div className={comment ? 'sicomentarios': 'nocomentarios'} data-testid='haycomentarios'>
+                        <div className="comentarios">
+                        <h5>Comentarios</h5>
                         <CommentInput id={id} comentarios={comentarios} nombre={usuario}/>
                         {comentarios ? comentarios.map((comentario)=>
                             <Comments username={comentario.username} caption={comentario.comentario}/>
                         ): <></>}
-
+                        </div>
                         </div>
                     </div> 
         </Router>

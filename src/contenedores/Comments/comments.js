@@ -8,7 +8,12 @@ import Likes from './../../contenedores/Likes/likes.js';
 
 
 function Comments ({username, caption})  {
+    var [comment, setComment]=useState(false);
 
+    var [comentario, setComentario]=useState('');
+
+
+    const commentPost =()=>setComment(!comment);    
    
 
     return(

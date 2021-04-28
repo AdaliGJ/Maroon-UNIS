@@ -22,25 +22,25 @@ function Like ({postkey}){
         setLike(!like);
 
 
-        /*database.ref('likes').child(data.currentUser.uid).child(postkey).set({
-            Estado: like.toString()
-        })*/
+        database.ref('likes').child(data.currentUser.uid).child(postkey).set({
+            Estado: like.toString(),
+        })
         
     }
     useEffect(() => {
-        /*database.ref('likes/').child(data.currentUser.uid).child(postkey).on('value', snapshot =>{
+        database.ref('likes').child(data.currentUser.uid).child(postkey).on('value', snapshot =>{
             if(snapshot.val()!=null){
                 if(snapshot.val().Estado == 'true'){
-                    setLike(false)
+                    setLike(true)
                 }
                 else{
-                    setLike(true)
+                    setLike(false)
                 } 
             }
             else{
-                setLike(true);
+                setLike(false);
             }   
-        })*/
+        })
 
 
     }, [])
