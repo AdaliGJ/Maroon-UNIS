@@ -1,0 +1,153 @@
+.comment-input .publicar{
+  text-align: center;
+  background-color: white;
+  width: 90%;
+  height: 60px;
+  display: flex;
+  border-radius: 5px;
+  margin:auto;
+  padding: 9px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.comment-input .publicar img{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border-color:rgb(88, 0, 0);
+    border: 1px;
+    float: left;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.comment-input .publicar .pensamiento{
+  border-radius: 10px;
+  width: 100%;
+  height: 30px;
+  margin-left: 5px;
+  background-color: rgba(131, 130, 130, 0.185);
+  color:rgb(88, 0, 0);
+  border: none;
+  align-self: center;
+  outline: none;
+  padding: 0px;
+  align-content: center;
+  margin: auto;
+}
+.comment-input .publicar .pensamiento:hover{
+  background-color: rgba(77, 75, 75, 0.384);
+  outline: none;
+}
+.comment-input .publicar .cuerpo{
+  display: none;
+  }
+
+.comment-input .publicar .extras {
+    display: none;
+  }
+
+.comment-input .escribir{
+  text-align: center;
+  background-color: white;
+  width: 90%;
+  height: 105px;
+  display: flex;
+  border-radius: 5px;
+  margin:auto;
+  padding: 2px;
+  border-width: 1px;
+}
+
+.comment-input .escribir img{
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 1px;
+  float: left;
+  border-color: #000030;
+  border-style: solid;
+  border-width: 2px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.comment-input .escribir .pensamiento{
+  display: none;
+}
+
+
+.comment-input .escribir .extras p{
+  color: black;
+ }
+
+ .comment-input .escribir .cuerpo{
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  margin-left: 5px;
+  background-color: rgba(131, 130, 130, 0.185);
+  color:rgb(88, 0, 0);
+  border: none;
+  margin-top: 15px;
+  min-height: 50px;
+  max-height: 75px;
+  display: block;
+  outline: none;
+  padding: 10px;
+}
+
+
+.comment-input .escribir  p{
+   color: black;
+  }
+ 
+.comment-input .escribir .extras {
+    position: absolute;
+    display: block;
+    margin-top: 40px;
+    align-self: baseline;
+    border-width: 1px;
+    margin-left: 20%;
+    height: 50px;
+  }
+.comment-input .escribir .extras .postear {
+   width: 100px;
+   background-color: #800000;
+   height: 20px;
+   color: white;
+   border-radius: 4px;
+   cursor: pointer;
+   margin-left: 10px;
+   border: none;
+   margin-top: 10px;
+   margin-bottom: 0px;
+   align-self: initial;
+   font-size: 15px;
+   align-content: center;
+   padding: 0px;
+ }
+.comment-input .escribir .extras .cancelar {
+   width: 100px;
+   background-color: rgba(51, 49, 49, 0.486);
+   height: 20px;
+   color: white;
+   border-radius: 4px;
+   cursor: pointer;
+   align-self: initial;
+   border: none;
+   margin-top: 35px;
+   margin-bottom: 0px;
+   align-self: initial;
+   font-size: 15px;
+   align-content: center;
+   padding: 0px;
+ }
+
+/*.publicaciones .nocomentarios .escribir{
+display: none;
+}
+.publicaciones .nocomentarios .publicar{
+  display: none;
+}*/

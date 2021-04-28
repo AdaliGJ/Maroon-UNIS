@@ -17,6 +17,7 @@ var firebaseConfig = {
   const storage = firebase.storage();
   const db = firebaseApp.firestore();
   const database = firebase.database();
+  firebase.firestore().settings({ experimentalForceLongPolling: true });
 
 
   export {storage, db, database, data as default};

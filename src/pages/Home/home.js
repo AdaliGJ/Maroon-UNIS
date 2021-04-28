@@ -35,7 +35,8 @@ const Home = () => {
 
         {posts.map(post => (
             <Post
-                key={post.datos.id}
+                id={post.id}
+                key={post.id}
                 nombre={post.datos.nombre}
                 foto={post.datos.foto}
                 correo={post.datos.correo}
@@ -44,6 +45,7 @@ const Home = () => {
                 postingImage={post.datos.imagen_Post}
                 carrera={post.datos.carrera}
                 hora={post.datos.hora}
+                comentarios={post.datos.comentarios}
       />
       ))}
         <Post

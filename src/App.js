@@ -14,6 +14,7 @@ import ImageUpload from './componentes/UploadImage/ImageUpload.js';
 import Follow from './contenedores/Follow/follow.js';
 import EditarP from './pages/EditarP/editarp.js';
 import { useStateValue } from './StateProvider';
+import Like from './contenedores/Likes/likes.js'
 
 
     const App = () =>{
@@ -31,7 +32,7 @@ import { useStateValue } from './StateProvider';
             <Route path="/mi-muro" component={Wall}/>
             <Route path="/buscar" component={Buscar}/>
             <Route path="/editar-perfil" component={EditarP}/>
-            <Route path="/follow" component={Follow}/>
+            <Route path="/like" component={Like}/>
             <Redirect path="/" to="/login"></Redirect>
           </Switch>
           </div>

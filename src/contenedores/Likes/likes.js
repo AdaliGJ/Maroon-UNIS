@@ -1,65 +1,60 @@
-import React, {Component} from 'react';
-import data, {storage, database} from './../../data.js';
+import React, {useState, useEffect} from 'react';
+import "./style.css";
+import data, {database, db} from "../../data.js"
+import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
+import Navbar from '../../contenedores/Menu/NavBar';
+import * as FaIcons from 'react-icons/fa';
+import * as RiIcons from 'react-icons/ri';
+import * as AiIcons from 'react-icons/ai';
+
+function Like ({postkey}){
 
 
-class MostrarComentarios extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-           perfil: data.currentUser.uid,
-           cuerpo: '',
-           fecha: '',
-           hora:'',
-           texto: ''
+    const [seguir, setSeguir] = useState(false);
 
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleUpload = this.handleUpload.bind(this);
+
+    var [like, setLike]=useState(false);
+
+
+
+    const likePost = ()=> {
+        
+        setLike(!like);
+
+
+        /*database.ref('likes').child(data.currentUser.uid).child(postkey).set({
+            Estado: like.toString()
+        })*/
+        
     }
+    useEffect(() => {
+        /*database.ref('likes/').child(data.currentUser.uid).child(postkey).on('value', snapshot =>{
+            if(snapshot.val()!=null){
+                if(snapshot.val().Estado == 'true'){
+                    setLike(false)
+                }
+                else{
+                    setLike(true)
+                } 
+            }
+            else{
+                setLike(true);
+            }   
+        })*/
 
-    getCuerpo = (post)=>{
-        const key = Object.getKey(post);
-    }
 
-    handleChange = e => {
-        if(e.target.files[0]){
-            const image = e.target.files[0];
-           this.setState(() => ({image}));
-        }
-    }
+    }, [])
 
-    handleUpload = () => {
-        const {image} =this.state;
-        const uploadTask = storage.ref(`perfil/${image.name}`).put(image);
-        uploadTask.on('state_changed', 
-        (snapshot)=>{
-           //Progress function
-           const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes)*100);
-           this.setState({progress});
-        }, 
-        (error) => {
-            //error function
-           console.log(error);
-        }, 
-        ()=>{
-            //complete function
-            storage.ref('perfil').child(image.name).getDownloadURL().then(url => {
-                console.log(url);
-                this.setState({url});
-                database.ref(`foto_perfil/${data.currentUser.uid}`).set({
-                   Foto: url
-                })
-            })
-        });
-    }
-    
-    render(){
-        return(
-            <section className="upload">
-
-            </section>
-        )
-    }
+    return(
+        <section className="like">
+             <div onClick={likePost} className={like? 'nolike' : 'silike'}>
+                <h5 className='no'><AiIcons.AiFillHeart size='32px' style={{fill:'#F44336'}}/>Me Gusta</h5>
+                <label for='no'></label>
+                <h5 className='si'><AiIcons.AiFillHeart size='32px' style={{fill: "rgb(50, 50, 50)"}}/>Me Gusta</h5>
+                <label for='si'></label>
+            </div> 
+        </section>
+    );
 }
 
-export default MostrarComentarios;
+export default Like;

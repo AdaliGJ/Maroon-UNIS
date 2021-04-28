@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import "./style.css";
-import data, {database} from "../../data.js"
+import data, {database, db} from "../../data.js"
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
 import * as FaIcons from 'react-icons/fa';
@@ -12,13 +12,19 @@ function Follow ({useruid}){
 
     const [seguir, setSeguir] = useState(false);
 
+    const [seguidores, setSeguidores]=useState([]);
+
 
     const follow = ()=> {
         
         setSeguir(!seguir);
+
+
         database.ref('seguidores').child(data.currentUser.uid).child(useruid).set({
             Estado: seguir.toString()
         })
+
+        
     }
     useEffect(() => {
         database.ref('seguidores/').child(data.currentUser.uid).child(useruid).on('value', snapshot =>{
@@ -34,6 +40,8 @@ function Follow ({useruid}){
                 setSeguir(true);
             }   
         })
+
+
     }, [])
 
     return(
