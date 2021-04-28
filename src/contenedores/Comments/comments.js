@@ -20,7 +20,7 @@ function Comments ({username, caption})  {
     <section className="comment">
         <p>
            <span>
-                {username}   
+                {username}: &nbsp;    
             </span> 
             {caption}
         </p>
