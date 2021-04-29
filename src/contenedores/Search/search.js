@@ -20,11 +20,12 @@ const Buscar = () => {
 
     useEffect(() => {
         database.ref('usuarios/').on('value', snapshot =>{
-            if(snapshot.val()!=null){ 
+            if(snapshot.val()!=null){
+                if(snapshot.val().UID!=data.currentUser.uid){ 
             setUsuarios({
                 ...snapshot.val()
             })
-            }
+            }}
         })
 
         database.ref('foto_perfil/').on('value', snapshot =>{
