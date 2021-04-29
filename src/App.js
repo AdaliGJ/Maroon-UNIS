@@ -18,7 +18,6 @@ import Like from './contenedores/Likes/likes.js'
 
 
     const App = () =>{
-
       return(
         <Router>
 	        <div className="App">

@@ -1,14 +1,25 @@
 import React from 'react';
-import "./style.css";
-import {Route, BrowserRouter as Router, Switch, Link, useHistory} from "react-router-dom";
+import "./chat.css";
+import {Route, BrowserRouter as Router, Switch, Link, useHistory, useParams} from "react-router-dom";
 import Navbar from '../../contenedores/Menu/NavBar';
+import Sidebar from './sidebar.js';
+import Mensajes from './mensajes';
 
 const Chat = () => {
 
     return(
     <section className="chat">
-            <Navbar/>
-            <h3>Mensajes</h3>
+        <Navbar/>
+        <div className="chat__body">
+        <Router>
+            <Sidebar/>
+            <Switch>
+                <Route path ='/mensajes/:chatId'>
+                    <Mensajes/>
+                </Route>
+            </Switch>
+        </Router>
+        </div>
     </section>
     );
 }
