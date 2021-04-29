@@ -70,7 +70,7 @@
     color: #ffffff;
   }
   
-  .signup .signupForm .boton p a {
+  .signup .signupForm .boton p span {
     color: grey;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -79,7 +79,7 @@
     transition: all 400ms ease-in-out;
   }
   
-  .signup .signupForm .boton p a:hover {
+  .signup .signupForm .boton p span:hover {
     color: yellow;
   }
   

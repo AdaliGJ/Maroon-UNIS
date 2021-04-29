@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "./style.css";
 import data, {database} from "./../../data.js"
-import {Route, BrowserRouter as Router, Switch, Link, useHistory, Redirect} from "react-router-dom";
+import {Route, MemoryRouter, Switch, Link, useHistory, Redirect} from "react-router-dom";
 
     const Registro = () =>{
 
@@ -22,6 +22,10 @@ import {Route, BrowserRouter as Router, Switch, Link, useHistory, Redirect} from
             const clearErrors = () =>{
               setEmailError('');
               setPasswordError('');
+            }
+
+            const iraLogin = ()=>{
+              history.push("/login")
             }
       
             const handleSignUp = () =>{
@@ -62,17 +66,17 @@ import {Route, BrowserRouter as Router, Switch, Link, useHistory, Redirect} from
 
       return(
 	    <section className="signup">
-            <div className="signupForm">
-                <h1>Registrarse</h1>
-                <label>E-mail</label>
-                <input type="email" id="correo" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                <p className="errorMsg">{emailError}</p>
-                <label>Contraseña</label>
-                <input type="password" required value={password} onChange={(e)=>setPassword(e.target.value)}/>
-                <p className="errorMsg">{passwordError}</p>
-                <div className="boton">
-                    <button onClick={handleSignUp}>Registrarse</button>
-                    <p>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></p>
+            <div className="signupForm" data-testid='signupform'>
+                <h1 data-testid='registrarse'>Registrarse</h1>
+                <label data-testid='email'>E-mail</label>
+                <input type="email" id="correo" required value={email} data-testid='correo' onChange={(e)=>setEmail(e.target.value)}/>
+                <p className="errorMsg" data-testid='error'>{emailError}</p>
+                <label data-testid='contra'>Contraseña</label>
+                <input type="password" data-testid='password' required value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                <p className="errorMsg" data-testid='errorMsg'>{passwordError}</p>
+                <div className="boton" data-testid='boton'>
+                    <button onClick={handleSignUp} data-testid='registro'>Registrarse</button>
+                    <p data-testid='login'>¿Ya tienes una cuenta? <span onClick={iraLogin}>Inicia sesión</span> </p>
                 </div>
             </div>
         </section>

@@ -77,7 +77,7 @@ import {useStateValue} from './../../StateProvider.js';
 
       return(
 	    <section className="login">
-            <div className="loginForm">
+            <div className="loginForm" data-testid='loginform'>
                 <h1>Iniciar Sesión</h1> 
                 <label>E-mail</label>
                 <input type="email" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
