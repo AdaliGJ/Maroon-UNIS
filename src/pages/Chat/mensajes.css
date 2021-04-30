@@ -47,7 +47,7 @@
     border-radius: 10px;
     width: fit-content;
     margin-bottom: 30px;
-    color: white;
+    color: black;
 }
 
 .mensajes .mensajes__body .mensajes__message .mensajes__name{
@@ -67,12 +67,14 @@
 .mensajes .mensajes__body .mensajes__receiver{
     margin-left: auto;
     background-color: #000030;
-    color: black;
+    color: white;
 }
 
 .mensajes .mensajes__body .mensajes__receiver .mensajes__timestamp{
     color: lightgray;
 }
+
+
 
 .mensajes .mensajes__footer{
     display: flex;
