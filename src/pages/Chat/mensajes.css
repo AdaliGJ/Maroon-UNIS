@@ -67,6 +67,7 @@
 .mensajes .mensajes__body .mensajes__receiver{
     margin-left: auto;
     background-color: #000030;
+    color: black;
 }
 
 .mensajes .mensajes__body .mensajes__receiver .mensajes__timestamp{
