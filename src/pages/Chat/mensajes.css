@@ -47,7 +47,7 @@
     border-radius: 10px;
     width: fit-content;
     margin-bottom: 30px;
-    color: black;
+    color: white;
 }
 
 .mensajes .mensajes__body .mensajes__message .mensajes__name{
@@ -66,7 +66,11 @@
 
 .mensajes .mensajes__body .mensajes__receiver{
     margin-left: auto;
-    background-color: rgba(206, 80, 80, 0.363);
+    background-color: #000030;
+}
+
+.mensajes .mensajes__body .mensajes__receiver .mensajes__timestamp{
+    color: lightgray;
 }
 
 .mensajes .mensajes__footer{
@@ -104,3 +108,4 @@
  .mensajes .mensajes__footer > form > button{
     display: none;
  }
+

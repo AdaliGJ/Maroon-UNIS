@@ -11,77 +11,15 @@ import Post from './../../contenedores/Post/post.js';
 
 const Wall = () => {
 
-    var [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [fechaString, setFechaString]=useState('');
+    const [seguidores, setSeguidores]=useState();
 
-    var [like, setLike]=useState(false);
-    var [comment, setComment]=useState(false);
-
-    const likePost = () => setLike(!like);
-
-    const commentPost =()=>setComment(!comment);
-
-    const borrar = () =>{
-        setTexto('');
-        showEscribir();
-    }
-
-    const publicacion = () =>{
-        pushObj();
-        setTexto('');
-        showEscribir();
-    }
-
-    const [name,setName] = useState('');
-	const [fecha,setFecha] = useState('');
-    const [hora, setHora]= useState('');
-
-
-	const [foto, setFoto]=useState('');
-    const [escribir,setEscribir] = useState(false);
-
-    const showEscribir = () => setEscribir(!escribir);
-
-	const userId = data.currentUser.uid;
-
-    const [texto,setTexto] = useState('');
-
-
-    const pushObj = () =>{
-		var usersRef = database.ref(`comentarios/${data.currentUser.uid}`);
-		usersRef.push({
-			Nombre: name,
-			Fecha_publicación: fecha,
-            Cuerpo: texto,
-			Foto: foto,
-            Hora: hora
-		},
-		err =>{
-			if(err)
-				console.log(err)
-		});
-	}
-
-    const tiempo = new Date();
-    const time = tiempo.getHours().toString() + ':' + tiempo.getMinutes().toString() + ':' + tiempo.getSeconds().toString();
-
-    
+  
     useEffect(() => {
         db.collection('posts').orderBy('fecha_publicación', 'desc').where('UID', '==', data.currentUser.uid).onSnapshot(snapshot => {
             setPosts(snapshot.docs.map(doc => ({ id: doc.id, datos: doc.data()})))
           });
-        var recentPostsRef = database.ref('/usuarios/'+ userId);
-    	recentPostsRef.once('value').then((snapshot) => {
-      	console.log(snapshot.val());
-		setName(snapshot.val().Nombre);
-        setFecha(new Date().toDateString());
-        setHora(time);
-        });
-
-		var fotoRef = database.ref('/foto_perfil/' + userId);
-		fotoRef.once('value').then((snapshot)=>{
-		console.log(snapshot.val());
-		setFoto(snapshot.val().Foto);
-	    });
     }, [])
 
     return(
@@ -94,7 +32,7 @@ const Wall = () => {
         {posts.map(post => (
             <Post
                 id={post.id}
-                key={post.datos.id}
+                key={post.id}
                 nombre={post.datos.nombre}
                 foto={post.datos.foto}
                 correo={post.datos.correo}
@@ -103,6 +41,7 @@ const Wall = () => {
                 postingImage={post.datos.imagen_Post}
                 carrera={post.datos.carrera}
                 hora={post.datos.hora}
+                comentarios={post.datos.comentarios}
       />
       ))}
         </div>

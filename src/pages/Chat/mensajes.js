@@ -1,18 +1,51 @@
-import React, {useState} from 'react'
-import './mensajes.css'
+import React, {useEffect, useState} from 'react';
+import './mensajes.css';
 import * as GrIcons from 'react-icons/gr';
 import {useParams} from "react-router-dom";
+import data,  { db, database } from '../../data';
+import firebase from 'firebase';
 
 function Mensajes() {
 
 const [input, setInput]=useState('');
 const {chatId} = useParams();
+const [chatName, setChatName]=useState('');
+const [mensajes, setMensajes]=useState([]);
+const [yo, setYo] = useState('');
 
 const sendMessage=(e)=>{
     e.preventDefault();
     console.log('mensaje', input);
+
+    db.collection('chats').doc(chatId).collection('mensajes').add({
+        mensaje: input,
+        nombre: yo,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        uid: data.currentUser.uid
+    });
+
     setInput('');
 }
+
+useEffect(()=>{
+    if(chatId){
+        db.collection('chats').doc(chatId).onSnapshot(snapshot=>{
+            setChatName(snapshot.data().nombre)
+        });
+
+        db.collection('chats').doc(chatId).collection('mensajes').orderBy('timestamp', 'asc').onSnapshot(snapshot=>{
+            setMensajes(snapshot.docs.map(doc=>doc.data()))
+        });
+    }
+}, [chatId])
+
+useEffect(()=>{
+    database.ref('usuarios').child(data.currentUser.uid).on('value', snaphot=>{
+        if(snaphot.val()!=null){
+            setYo(snaphot.val().Nombre);
+        }
+    });
+}, [])
 
 
     return (
@@ -20,13 +53,22 @@ const sendMessage=(e)=>{
             <div className='mensajes__header'>
                 <img src='https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' width='40px' height='40px'/>
                 <div className='mensajes__headerInfo'>
-                    <h3>Room name</h3>
-                    <p>Last Seen at...</p>
+                    <h3>{chatName}</h3>
+                    <p>{'Última Actividad: '+ new Date(
+                        mensajes[mensajes.length-1]?.timestamp?.toDate()).toUTCString() || 'Sin fecha'
+                    }</p>
                 </div>
             </div>
 
             <div className='mensajes__body'>
-                <p className={`mensajes__message ${true && 'mensajes__receiver'}`}><span className='mensajes__name'>Ken Pérez</span> Hola<span className='mensajes__timestamp'>3:50</span></p>
+                {mensajes.map(mensaje=>(
+                    <p className={`mensajes__message ${mensaje.uid===data.currentUser.uid && 
+                    'mensajes__receiver'}`}>
+                    <span className='mensajes__name'>{mensaje.nombre}</span>
+                    {mensaje.mensaje}<span className='mensajes__timestamp'>
+                    {new Date(mensaje.timestamp?.toDate()).toUTCString()}
+                    </span></p>
+                ))}
             </div>
 
             <div className='mensajes__footer'>

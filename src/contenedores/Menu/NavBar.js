@@ -53,10 +53,6 @@ function Navbar(){
                 <Link to="#" className='menu-bars'>
                 <FaIcons.FaBars onClick={showSidebar}/>
                 </Link>
-                <div className='navbar__input'>
-                    <FaIcons.FaSearch style={{fill: 'black'}}/>
-                    <input placeholder='  Buscar...' type='text'/>
-                </div>
             </div>
             <div className='navbar__right'>
                 <div className='navbar__info'>

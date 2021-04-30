@@ -5,6 +5,15 @@
     border-bottom: 1px solid lightgray;
 }
 
+
+.sidebarchat > img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .sidebarchat:hover{
     background-color: #ebebeb;
 }
@@ -16,7 +25,19 @@
     font-weight: bold;
 }
 
+.sidebarchat .sidebarchat__info >p{
+    color:gray;
+}
+
 .sidebarchat .sidebarchat__info{
     margin-left: 15px;
     color: black;
+    margin-top: auto;
+    margin-bottom: auto;
 }
+
+ a{
+    text-decoration: none;
+    color: black; 
+}
+

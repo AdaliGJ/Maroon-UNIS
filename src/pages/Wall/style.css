@@ -198,13 +198,13 @@
   background-color: rgba(77, 75, 75, 0.384);
   outline: none;
 }
-.wall .publicaciones .sicomentarios .publicar .cuerpo{
+/*.wall .publicaciones .sicomentarios .publicar .cuerpo{
   display: none;
   }
 
 .wall .publicaciones .sicomentarios .publicar .extras {
     display: none;
-  }
+  }*/
 
 .wall .publicaciones .sicomentarios .escribir{
   text-align: center;
@@ -231,14 +231,14 @@
   margin-bottom: 50px;
 }
 
-.wall .publicaciones .sicomentarios .escribir .pensamiento{
+/*.wall .publicaciones .sicomentarios .escribir .pensamiento{
   display: none;
 }
-
+*/
 
 .wall .publicaciones .sicomentarios .escribir .extras p{
   color: black;
- }
+}
 
  .wall .publicaciones .sicomentarios .escribir .cuerpo{
   border-radius: 10px;
@@ -303,7 +303,7 @@
    padding: 0px;
  }
 
- .wall .publicaciones .nocomentarios .escribir{
+.wall .publicaciones .nocomentarios .escribir{
 display: none;
 }
 .wall .publicaciones .nocomentarios .publicar{

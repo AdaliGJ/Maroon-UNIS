@@ -7,23 +7,43 @@
 
 .sidebar .sidebar__header{
     display: flex;
-    justify-content: space-between;
     padding: 28px;
     border-right: 1px solid lightgray;
     color: black;
     background-color: rgb(209, 208, 208);
 }
 
+
 .sidebar .sidebar__header > img{
     border-radius: 50%;
     border: 1px solid #000030;
-    width:'42px'; 
-    height:'42px';
+    width:'2px'; 
+    height:'2px';
+}
+
+.sidebar .sidebar__header > div > p{
+    color:gray;
+    margin: auto;
+    margin-left: 20px;
+    flex-direction: column;
+}
+.sidebar .sidebar__header > div > h3{
+    color:black;
+    margin: auto;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .sidebar .sidebar__chats{
     flex: 1;
-    background-color: lightsteelblue;
+    background-color: white;
     overflow: scroll;
     color: black;
 }
+
+a{
+    text-decoration: none;
+    color: black; 
+}
+

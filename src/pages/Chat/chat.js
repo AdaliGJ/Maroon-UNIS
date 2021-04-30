@@ -7,6 +7,8 @@ import Mensajes from './mensajes';
 
 const Chat = () => {
 
+    const {chatId}=useParams();
+
     return(
     <section className="chat">
         <Navbar/>
@@ -15,6 +17,9 @@ const Chat = () => {
             <Sidebar/>
             <Switch>
                 <Route path ='/mensajes/:chatId'>
+                    <Mensajes/>
+                </Route>
+                <Route path ='/'>
                     <Mensajes/>
                 </Route>
             </Switch>
