@@ -19,9 +19,6 @@ const Chat = () => {
                 <Route path ='/mensajes/:chatId'>
                     <Mensajes/>
                 </Route>
-                <Route path ='/'>
-                    <Mensajes/>
-                </Route>
             </Switch>
         </Router>
         </div>
