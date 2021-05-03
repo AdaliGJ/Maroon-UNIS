@@ -4,8 +4,11 @@ import * as GrIcons from 'react-icons/gr';
 import {useParams} from "react-router-dom";
 import data,  { db, database } from '../../data';
 import firebase from 'firebase';
+import EmojiPicker from 'emoji-picker-react';
+
 
 function Mensajes() {
+
 
 const [input, setInput]=useState('');
 const {chatId} = useParams();
@@ -26,6 +29,7 @@ const sendMessage=(e)=>{
 
     setInput('');
 }
+
 
 useEffect(()=>{
     if(chatId){
@@ -51,7 +55,6 @@ useEffect(()=>{
     return (
         <div className='mensajes'>
             <div className='mensajes__header'>
-                <img src='https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' width='40px' height='40px'/>
                 <div className='mensajes__headerInfo'>
                     <h3>{chatName}</h3>
                     <p>{'Última Actividad: '+ new Date(
@@ -72,7 +75,6 @@ useEffect(()=>{
             </div>
 
             <div className='mensajes__footer'>
-                <p color='black'><GrIcons.GrEmoji size='24px' style={{fill: 'gray'}}/></p>
                 <form>
                     <input value={input} onChange={(e)=>setInput(e.target.value)} type='text' placeholder='Escribe algo...'/>
                     <button type='submit' onClick={sendMessage}>Enviar Mensaje</button>

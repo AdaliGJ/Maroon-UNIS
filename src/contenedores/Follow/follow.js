@@ -22,17 +22,6 @@ function Follow ({useruid}){
         
         setSeguir(!seguir);
 
-        database.ref('usuarios').child(data.currentUser.uid).on('value', snaphot=>{
-            if(snaphot.val()!=null){
-                setYo(snaphot.val().Nombre);
-            }
-        });
-
-        database.ref('usuarios').child(useruid).on('value', snaphot=>{
-            if(snaphot.val()!=null){
-                setEl(snaphot.val().Nombre);
-            }
-        });
 
         database.ref('seguidores').child(data.currentUser.uid).child(useruid).set({
             Estado: seguir.toString()
@@ -71,6 +60,18 @@ function Follow ({useruid}){
                 setSeguir(true);
             }   
         })
+
+        database.ref('usuarios').child(data.currentUser.uid).on('value', snaphot=>{
+            if(snaphot.val()!=null){
+                setYo(snaphot.val().Nombre);
+            }
+        });
+
+        database.ref('usuarios').child(useruid).on('value', snaphot=>{
+            if(snaphot.val()!=null){
+                setEl(snaphot.val().Nombre);
+            }
+        });
 
 
     }, [])

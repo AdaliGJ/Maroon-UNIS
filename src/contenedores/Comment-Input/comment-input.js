@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./style.css";
-import data, {db, database} from './../../data.js'
+import data, {db, database} from './../../data.js';
+import * as AiIcons from 'react-icons/ai';
 
 function CommentInput({id, nombre, comentarios}){
 
@@ -28,7 +29,8 @@ function CommentInput({id, nombre, comentarios}){
         if(comentario!=""){
         commentArray.push({
             comentario: comentario,
-            username: nombre
+            username: nombre,
+            foto: fotoActual
         })
         db.collection('posts').doc(id).update({
             comentarios: commentArray

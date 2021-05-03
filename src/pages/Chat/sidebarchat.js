@@ -9,17 +9,25 @@ function Sidebarchat({name, id, key, m1, m2}) {
     const [mensajes, setMensajes]=useState([]);
 
     const[foto, setFoto]=useState('');
-    const[foto2, setFoto2]=useState('');
 
     useEffect(() => {   
 
         if(data.currentUser.uid!=m1){
             var fotoRef = database.ref('/foto_perfil/' + m1);
 		    fotoRef.once('value').then((snapshot)=>{
-                setFoto(snapshot.val().Foto)
+                if(snapshot!=null){
+                    setFoto(snapshot.val().Foto)
+                }
+	        });
+        }else if (data.currentUser.uid!=m2){
+            var fotoRef = database.ref('/foto_perfil/' + m2);
+		    fotoRef.once('value').then((snapshot)=>{
+                if(snapshot!=null){
+                    setFoto(snapshot.val().Foto)
+                }
 	        });
         }else{
-            setFoto('')
+            setFoto('');
         }
     }, [])
 

@@ -27,7 +27,6 @@ const Wall = () => {
         <header>
             <Navbar/>
         </header>
-        <h3>Mi Muro</h3>
         <div>
         {posts.map(post => (
             <Post

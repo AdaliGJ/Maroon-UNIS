@@ -10,7 +10,7 @@
     padding: 28px;
     border-right: 1px solid lightgray;
     color: black;
-    background-color: rgb(209, 208, 208);
+    background-color: #ebebeb;
 }
 
 
@@ -47,3 +47,22 @@ a{
     color: black; 
 }
 
+
+.sidebar ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .sidebar ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .sidebar ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

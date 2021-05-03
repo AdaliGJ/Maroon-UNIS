@@ -40,7 +40,6 @@ const Buscar = () => {
     return(
     <section className="search">
             <Navbar/>
-            <h3>Buscar</h3>
             <div className='buscador'>
                 <FaIcons.FaSearch style={{fill: 'black'}}/>
                 <input className='buscador_input' placeholder='Buscar...' value={searchTerm} type='text' onChange={(e)=>{setSearchTerm(e.target.value)}}/>

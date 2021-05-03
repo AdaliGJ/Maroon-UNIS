@@ -2,14 +2,14 @@
     flex: 0.65;
     display: flex;
     flex-direction: column;
-    background-color: rgb(209, 208, 208);
+    background-color: #ebebeb;
 }
 
 .mensajes .mensajes__header{
     padding: 20px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .mensajes .mensajes__header .mensajes__headerInfo{
@@ -34,10 +34,32 @@
 }
 .mensajes .mensajes__body{
     flex: 1;
-    background-color: rgb(237, 233, 255);
+    background-color: rgb(238, 235, 252);
     padding: 30px;
     overflow: scroll;
+    scroll-behavior: auto;
 }
+
+
+.mensajes .mensajes__body::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+  .mensajes .mensajes__body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .mensajes .mensajes__body::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .mensajes .mensajes__body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 
 .mensajes .mensajes__body .mensajes__message{
     position: relative;
@@ -48,6 +70,7 @@
     width: fit-content;
     margin-bottom: 30px;
     color: black;
+    max-width: 50%;
 }
 
 .mensajes .mensajes__body .mensajes__message .mensajes__name{
