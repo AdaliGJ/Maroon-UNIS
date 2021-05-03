@@ -15,16 +15,25 @@ const Home = () => {
         history.push("/login");
     };
 
+    const [name,setName] = useState('');
+    const [carnet,setCarnet] = useState('');
+    const [carrera,setCarrera] = useState('');
+    const [fecha,setFecha] = useState('');
+    const [correo, setCorreo]= useState(data.currentUser.email);
+    const [facultad, setFacultad]=useState('');
+    const [uid, setUid] = useState(data.currentUser.uid);
+
+
 
     const [posts, setPosts] = useState([]);
     const [fechaString, setFechaString]=useState('');
     const [seguidores, setSeguidores]=useState();
+  
 
     useEffect(() => {
         db.collection('posts').orderBy('fecha_publicación', 'desc').onSnapshot(snapshot => {
           setPosts(snapshot.docs.map(doc => ({ id: doc.id, datos: doc.data()})))
         })
-
         
       }, [])
 

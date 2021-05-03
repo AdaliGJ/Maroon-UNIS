@@ -19,6 +19,7 @@ const CrearP = () => {
 	const [correo, setCorreo]= useState(data.currentUser.email);
 	const [facultad, setFacultad]=useState('');
 	const [uid, setUid] = useState(data.currentUser.uid);
+	const [foto, setFoto] = useState('https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d')
 	
 
 	const pushObj1 = () =>{
@@ -53,7 +54,7 @@ const CrearP = () => {
 		err =>{
 			if(err)
 				console.log(err)
-		});
+		})
 	}
 
 	
