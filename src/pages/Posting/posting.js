@@ -70,7 +70,9 @@ const Posting = () => {
     const showImagen = () => setImagen(!imagen);
 
     const pushObj = () =>{
-		var usersRef = db.collection('posts');
+		
+        if(texto!='' && foto!=''){
+        var usersRef = db.collection('posts');
 		usersRef.add({
 			nombre: name,
 			carrera: carrera,
@@ -87,6 +89,7 @@ const Posting = () => {
 			if(err)
 				console.log(err)
 		});
+    }
 	}
 
     const tiempo = new Date();

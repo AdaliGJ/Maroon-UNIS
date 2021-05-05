@@ -1,6 +1,8 @@
 import React from 'react';
 import {render, fireEvent, queryByText, getByTestId} from '@testing-library/react';
 import Registro from '../pages/Registro/registro.js';
+import Login from '../pages/Login/login.js';
+
 
 
 it("Render correcto", ()=>{

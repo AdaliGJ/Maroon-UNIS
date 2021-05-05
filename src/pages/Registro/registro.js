@@ -53,7 +53,7 @@ import {Route, MemoryRouter, Switch, Link, useHistory, Redirect} from "react-rou
                   history.push("/crear-perfil");
                 }
                 else{
-                  setUser('');
+                  //setUser('');
                 }
               });
             };

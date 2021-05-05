@@ -53,7 +53,7 @@ const Buscar = () => {
                         return val;
                     }
                 }).map(id => {
-
+                    if(id!=data.currentUser.uid)
                  return <div className='resultados'>
                     <img className='perfil' src ={fotosPerfil[id]? fotosPerfil[id].Foto:'https://firebasestorage.googleapis.com/v0/b/maroon-fc3ba.appspot.com/o/perfil%2Fdefault.jpg?alt=media&token=18c8df68-dfee-468a-829c-88fe66e3272d' }></img>
                     <div className="resultados__left">

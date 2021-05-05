@@ -3,10 +3,10 @@ import {render, fireEvent, queryByText, getByTestId} from '@testing-library/reac
 import Post from './../contenedores/Post/post.js';
 import suma from './../suma.js';
 import Like from './../contenedores/Likes/likes.js';
+import firebase from 'firebase';
+import "firebase/storage";
+import data from './../data.js';
 
-test('suma 1 + 2 = 3', ()=>{
-    expect(suma(1,2)).toBe(3);
-});
 
 /*it("render correcto", () => {
     const {queryByTestId, queryByPlaceholderText} = render(<Post/>)
