@@ -71,7 +71,7 @@ const Posting = () => {
 
     const pushObj = () =>{
 		
-        if(texto!='' && foto!=''){
+        if(texto!='' || foto!=''){
         var usersRef = db.collection('posts');
 		usersRef.add({
 			nombre: name,
