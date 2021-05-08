@@ -1,15 +1,11 @@
 import React from 'react';
 import {render, fireEvent, queryByText, getByTestId} from '@testing-library/react';
-import Post from './../contenedores/Post/post.js';
-import suma from './../suma.js';
-import Like from './../contenedores/Likes/likes.js';
-import firebase from 'firebase';
-import "firebase/storage";
-import data from './../data.js';
+import PostData from './TestMockData/PostData.js';
 
 
-/*it("render correcto", () => {
-    const {queryByTestId, queryByPlaceholderText} = render(<Post/>)
+
+it("render correcto", () => {
+    const {queryByTestId} = render(<PostData/>)
 
     expect(queryByTestId('foto')).toBeTruthy();
     expect(queryByTestId('nombre')).toBeTruthy();
@@ -28,7 +24,7 @@ import data from './../data.js';
 
 describe('valor input', () =>{
     it('cambia al escribir', ()=>{
-        const {queryByPlaceholderText}=render(<Post/>)
+        const {queryByPlaceholderText}=render(<PostData/>)
 
         const input = queryByPlaceholderText('Escribe algo...');
 
@@ -36,10 +32,10 @@ describe('valor input', () =>{
 
         expect(input.value).toBe('prueba');
     })
-})*/
+})
 
 it("valores correctos", () => {
-    const {queryByTestId, getByText} = render(<Post
+    const {queryByTestId, getByText} = render(<PostData
         nombre='Adalí Garrán'
         fecha='fecha'
         correo='adaligaji@hotmail.com'
@@ -56,10 +52,10 @@ it("valores correctos", () => {
     expect(queryByTestId('postimg')).toHaveAttribute('src', 'https://www.luisan.net/blog/wp-content/uploads/2014/09/color_small_mk-e1549454603143.png');
     expect(queryByTestId('perfil')).toHaveAttribute('src', 'https://i.pinimg.com/originals/19/87/90/198790eb7e08830027c1ae1686496c72.png');
 
-})/*
+})
 
 it('Activa comentarios', ()=>{
-    const {queryByTestId} = render(<Post/>);
+    const {queryByTestId} = render(<PostData/>);
 
     expect(queryByTestId('haycomentarios')).toHaveAttribute('class', 'nocomentarios');
 
@@ -70,7 +66,7 @@ it('Activa comentarios', ()=>{
 })
 
 it('Activa escribir comentarios', ()=>{
-    const {queryByTestId} = render(<Post/>);
+    const {queryByTestId} = render(<PostData/>);
 
     fireEvent.click(queryByTestId('comment'));
 
@@ -83,7 +79,7 @@ it('Activa escribir comentarios', ()=>{
 })
 
 it('Cancela comentarios', ()=>{
-    const {queryByTestId} = render(<Post/>);
+    const {queryByTestId} = render(<PostData/>);
 
     fireEvent.click(queryByTestId('comment'));
     fireEvent.click(queryByTestId('pensamiento'));
@@ -97,4 +93,3 @@ it('Cancela comentarios', ()=>{
 
 })
 
-*/
